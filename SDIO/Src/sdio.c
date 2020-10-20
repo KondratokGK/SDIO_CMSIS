@@ -4,6 +4,7 @@
 #include "cmsis_delay.h"
 #include "sdio.h"
 
+
 uint16_t SDIO_RCA;
 
 uint16_t SDIO_Get_RCA()
@@ -149,4 +150,25 @@ void SDIO_Connect()
 	Delay(1);
 	SDIO->CLKCR|=(118<<SDIO_CLKCR_CLKDIV_Pos);
 	
+}
+
+int SDIO_disk_initialize()
+{
+	return 0;
+}
+
+int SDIO_disk_status()
+{
+	return 0;
+}
+
+
+int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
+{
+	return 0;
+}
+
+int SDIO_disk_write(const BYTE *buff, LBA_t sector, UINT count)
+{
+	return 0;
 }
