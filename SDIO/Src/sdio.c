@@ -146,9 +146,9 @@ void SDIO_Connect()
 	{
 		GPIOA->BSRR|=GPIO_BSRR_BS1;
 	}
-	SDIO->CLKCR&=~SDIO_CLKCR_CLKDIV_Msk;
-	Delay(1);
-	SDIO->CLKCR|=(118<<SDIO_CLKCR_CLKDIV_Pos);
+	//SDIO->CLKCR&=~SDIO_CLKCR_CLKDIV_Msk;
+	//Delay(1);
+	//SDIO->CLKCR|=(238<<SDIO_CLKCR_CLKDIV_Pos);
 	
 }
 
@@ -167,19 +167,16 @@ int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 {
 	SDIO_Command(7,0x1,0,0);
 	SDIO_Command(7,0x1,SDIO_Get_RCA()<<16,0);
-	SDIO->DCTRL|=SDIO_DCTRL_RWMOD; //Control using SDIO_CK
+	//SDIO->DCTRL|=SDIO_DCTRL_SDIOEN; //Data direction from card to controller
 	Delay(1);
 	SDIO->DCTRL|=SDIO_DCTRL_DTDIR; //Data direction from card to controller
 	Delay(1);
-	SDIO->DCTRL|=SDIO_DCTRL_DTMODE; //Control using SDIO_CK
-	Delay(1);
-	SDIO->DCTRL|=SDIO_DCTRL_DTMODE; //Control using SDIO_CK
-	Delay(1);
-	SDIO->DCTRL|=SDIO_DCTRL_DTMODE; //Control using SDIO_CK
-	Delay(1);
-	SDIO->DCTRL|=SDIO_DCTRL_DTMODE; //Control using SDIO_CK
-	Delay(1);
-	SDIO_Command(17,0x1,1,0);
+	SDIO->DCTRL|=SDIO_DCTRL_DTEN; //Data direction from card to controller
+	Delay(1000);
+	//SDIO->DLEN=512;
+	//Delay(1);
+	SDIO_Command(17,0x1,0,0);
+	Delay(1000);
 	uint32_t data = SDIO->FIFO;
 	data = SDIO->FIFO;
 	return 0;

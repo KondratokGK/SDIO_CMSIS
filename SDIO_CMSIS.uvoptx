@@ -150,66 +150,34 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>165</LineNumber>
+          <LineNumber>181</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134221020</Address>
+          <Address>134220358</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\User\Src\main.c</Filename>
+          <Filename>.\SDIO\Src\sdio.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\SDIO_CMSIS\User/Src/main.c\165</Expression>
+          <Expression>\\SDIO_CMSIS\SDIO/Src/sdio.c\181</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>163</LineNumber>
+          <LineNumber>180</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134221008</Address>
+          <Address>134220352</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\User\Src\main.c</Filename>
+          <Filename>.\SDIO\Src\sdio.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\SDIO_CMSIS\User/Src/main.c\163</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>162</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134220996</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\User\Src\main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\SDIO_CMSIS\User/Src/main.c\162</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>160</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134220966</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\User\Src\main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\SDIO_CMSIS\User/Src/main.c\160</Expression>
+          <Expression>\\SDIO_CMSIS\SDIO/Src/sdio.c\180</Expression>
         </Bp>
       </Breakpoint>
       <MemoryWindow1>
@@ -359,7 +327,7 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>4</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\fatfs\diskio.c</PathWithFileName>

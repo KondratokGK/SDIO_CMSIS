@@ -158,13 +158,24 @@ int main()
 	SDIO_Connect();
 	//SdioCommand(9,0x3,SdioRca<<16,0);
 	SDIO_Command(7,0x1,SDIO_Get_RCA()<<16,0);
-	SDIO->DCTRL|=1<<8;
-	SDIO_Command(17,0x1,1,0);
-	uint32_t data = SDIO->FIFO;
-	data = SDIO->FIFO;
+	uint8_t oktext[]="OK      \r\n";
+	uint8_t foo=0;
+	SDIO_disk_read(0,0,0);
+	if(SDIO->FIFO!=0)
+	{
+		foo=1;
+	}
 	while(1)
 	{
-			USARTPrint(textt,sizeof(textt)/sizeof(*textt)-1);
+			if(foo==1)
+			{
+				USARTPrint(oktext,sizeof(oktext)/sizeof(*oktext)-1);
+			}
+			else
+			{
+				USARTPrint(textt,sizeof(textt)/sizeof(*textt)-1);
+			}
+			
 			Delay(1000);
 //		SDIO->CMD|=SDIO_CMD_CPSMEN;
 //		delay(10);
