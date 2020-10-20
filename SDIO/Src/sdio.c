@@ -148,7 +148,7 @@ void SDIO_Connect()
 	}
 	SDIO->CLKCR&=~SDIO_CLKCR_CLKDIV_Msk;
 	Delay(1);
-	SDIO->CLKCR|=(118<<SDIO_CLKCR_CLKDIV_Pos);
+	SDIO->CLKCR|=(2<<SDIO_CLKCR_CLKDIV_Pos);
 	
 }
 
@@ -165,10 +165,14 @@ int SDIO_disk_status()
 
 int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 {
+	SDIO_Command(7,0x1,0,0);
+	SDIO_Command(7,0x1,SDIO_Get_RCA()<<16,0);
 	return 0;
 }
 
 int SDIO_disk_write(const BYTE *buff, LBA_t sector, UINT count)
 {
+	SDIO_Command(7,0x1,0,0);
+	SDIO_Command(7,0x1,SDIO_Get_RCA()<<16,0);
 	return 0;
 }

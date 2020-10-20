@@ -1,5 +1,5 @@
 Dependencies for Project 'SDIO_CMSIS', Target 'Target 1': (DO NOT MODIFY !)
-F (.\User\Src\main.c)(0x5F8EA35A)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\fatfs -I .\fatfs -I .\SDIO\Inc -I .\SDIO\Src -I .\CMSIS_DELAY\Inc-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\User\Src\main.c)(0x5F8EB9A6)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\fatfs -I .\fatfs -I .\SDIO\Inc -I .\SDIO\Src -I .\CMSIS_DELAY\Inc-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5C5BBA52)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h)(0x5C5BBA52)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8EFB52)
@@ -12,7 +12,7 @@ I (C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588BAD74)
 I (.\fatfs\ff.h)(0x5DA42032)
 I (.\fatfs\ffconf.h)(0x5F8E83F4)
-I (.\SDIO\Inc\sdio.h)(0x5F8EB3D2)
+I (.\SDIO\Inc\sdio.h)(0x5F8EB9B2)
 I (.\CMSIS_DELAY\Inc\cmsis_delay.h)(0x5F8E9015)
 F (.\User\Src\initscript.c)(0x5F70DED1)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\fatfs -I .\SDIO\Inc -I .\SDIO\Src -I .\CMSIS_DELAY\Inc-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\initscript.o --omf_browse .\objects\initscript.crf --depend .\objects\initscript.d)
 F (.\fatfs\ff.c)(0x5DA42032)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\SDIO\Inc-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\ff.o --omf_browse .\objects\ff.crf --depend .\objects\ff.d)
@@ -25,7 +25,7 @@ I (fatfs\ff.h)(0x5DA42032)
 I (fatfs\ffconf.h)(0x5F8E83F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BAD74)
 I (fatfs\diskio.h)(0x5DA42032)
-I (.\SDIO\Inc\sdio.h)(0x5F8EB3D2)
+I (.\SDIO\Inc\sdio.h)(0x5F8EB9B2)
 F (.\fatfs\ffsystem.c)(0x5DA42032)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\SDIO\Inc-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\ffsystem.o --omf_browse .\objects\ffsystem.crf --depend .\objects\ffsystem.d)
 I (fatfs\ff.h)(0x5DA42032)
 I (fatfs\ffconf.h)(0x5F8E83F4)
@@ -34,7 +34,7 @@ F (.\fatfs\ffunicode.c)(0x5DA42032)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 
 I (fatfs\ff.h)(0x5DA42032)
 I (fatfs\ffconf.h)(0x5F8E83F4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BAD74)
-F (.\SDIO\Src\sdio.c)(0x5F8EB3D2)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\SDIO\Inc -I .\SDIO\Src -I .\CMSIS_DELAY\Inc-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\sdio.o --omf_browse .\objects\sdio.crf --depend .\objects\sdio.d)
+F (.\SDIO\Src\sdio.c)(0x5F8EB9A6)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\SDIO\Inc -I .\SDIO\Src -I .\CMSIS_DELAY\Inc-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\sdio.o --omf_browse .\objects\sdio.crf --depend .\objects\sdio.d)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5C5BBA52)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h)(0x5C5BBA52)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8EFB52)
@@ -46,7 +46,7 @@ I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8EFB5
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x5C5BBA52)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588BAD74)
 I (.\CMSIS_DELAY\Inc\cmsis_delay.h)(0x5F8E9015)
-I (.\SDIO\Inc\sdio.h)(0x5F8EB3D2)
+I (.\SDIO\Inc\sdio.h)(0x5F8EB9B2)
 F (.\CMSIS_DELAY\Src\cmsis_delay.c)(0x5F8E9015)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\CMSIS_DELAY\Inc -I .\CMSIS_DELAY\Src-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\cmsis_delay.o --omf_browse .\objects\cmsis_delay.crf --depend .\objects\cmsis_delay.d)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5C5BBA52)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h)(0x5C5BBA52)
