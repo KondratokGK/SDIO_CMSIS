@@ -29,7 +29,8 @@ DSTATUS disk_status (
 
 	switch (pdrv) {
 	case DEV_RAM :
-		result = RAM_disk_status();
+		//result = RAM_disk_status();
+		result = 0;
 
 		// translate the reslut code here
 
@@ -43,7 +44,7 @@ DSTATUS disk_status (
 		return stat;
 
 	case DEV_USB :
-		result = USB_disk_status();
+		//result = USB_disk_status();
 
 		// translate the reslut code here
 
@@ -67,8 +68,8 @@ DSTATUS disk_initialize (
 
 	switch (pdrv) {
 	case DEV_RAM :
-		result = RAM_disk_initialize();
-
+		//result = RAM_disk_initialize();
+		result = 0;
 		// translate the reslut code here
 
 		return stat;
@@ -81,8 +82,8 @@ DSTATUS disk_initialize (
 		return stat;
 
 	case DEV_USB :
-		result = USB_disk_initialize();
-
+		//result = USB_disk_initialize();
+		result = 0;
 		// translate the reslut code here
 
 		return stat;

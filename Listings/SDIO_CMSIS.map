@@ -14,8 +14,6 @@ Section Cross References
     main.o(i.main) refers to sdio.o(i.SDIO_Init) for SDIO_Init
     main.o(i.main) refers to main.o(i.UsartInit) for UsartInit
     main.o(i.main) refers to sdio.o(i.SDIO_Connect) for SDIO_Connect
-    main.o(i.main) refers to sdio.o(i.SDIO_Get_RCA) for SDIO_Get_RCA
-    main.o(i.main) refers to sdio.o(i.SDIO_Command) for SDIO_Command
     main.o(i.main) refers to main.o(i.USARTPrint) for USARTPrint
     main.o(i.main) refers to cmsis_delay.o(i.Delay) for Delay
     ff.o(i.change_bitmap) refers to ff.o(i.move_window) for move_window
@@ -496,10 +494,10 @@ Removing Unused input sections from the image.
     Removing ff.o(.bss), (1120 bytes).
     Removing ff.o(.constdata), (141 bytes).
     Removing ff.o(.data), (6 bytes).
-    Removing diskio.o(i.disk_initialize), (50 bytes).
+    Removing diskio.o(i.disk_initialize), (42 bytes).
     Removing diskio.o(i.disk_ioctl), (34 bytes).
     Removing diskio.o(i.disk_read), (54 bytes).
-    Removing diskio.o(i.disk_status), (50 bytes).
+    Removing diskio.o(i.disk_status), (40 bytes).
     Removing diskio.o(i.disk_write), (58 bytes).
     Removing ffunicode.o(i.ff_oem2uni), (44 bytes).
     Removing ffunicode.o(i.ff_uni2oem), (64 bytes).
@@ -508,6 +506,7 @@ Removing Unused input sections from the image.
     Removing sdio.o(.rev16_text), (4 bytes).
     Removing sdio.o(.revsh_text), (4 bytes).
     Removing sdio.o(.rrx_text), (6 bytes).
+    Removing sdio.o(i.SDIO_Get_RCA), (12 bytes).
     Removing cmsis_delay.o(.rev16_text), (4 bytes).
     Removing cmsis_delay.o(.revsh_text), (4 bytes).
     Removing cmsis_delay.o(.rrx_text), (6 bytes).
@@ -515,4 +514,4 @@ Removing Unused input sections from the image.
     Removing system_stm32f4xx.o(.revsh_text), (4 bytes).
     Removing system_stm32f4xx.o(.rrx_text), (6 bytes).
 
-98 unused section(s) (total 17403 bytes) removed from the image.
+99 unused section(s) (total 17397 bytes) removed from the image.

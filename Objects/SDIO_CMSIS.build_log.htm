@@ -27,6 +27,26 @@ Project File Date:  10/20/2020
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
+compiling diskio.c...
+fatfs\diskio.c(40): warning:  #223-D: function "MMC_disk_status" declared implicitly
+  		result = MMC_disk_status();
+fatfs\diskio.c(28): warning:  #550-D: variable "result"  was set but never used
+  	int result;
+fatfs\diskio.c(78): warning:  #223-D: function "MMC_disk_initialize" declared implicitly
+  		result = MMC_disk_initialize();
+fatfs\diskio.c(67): warning:  #550-D: variable "result"  was set but never used
+  	int result;
+fatfs\diskio.c(123): warning:  #223-D: function "MMC_disk_read" declared implicitly
+  		result = MMC_disk_read(buff, sector, count);
+fatfs\diskio.c(108): warning:  #550-D: variable "result"  was set but never used
+  	int result;
+fatfs\diskio.c(173): warning:  #223-D: function "MMC_disk_write" declared implicitly
+  		result = MMC_disk_write(buff, sector, count);
+fatfs\diskio.c(158): warning:  #550-D: variable "result"  was set but never used
+  	int result;
+fatfs\diskio.c(206): warning:  #177-D: variable "result"  was declared but never referenced
+  	int result;
+fatfs\diskio.c: 9 warnings, 0 errors
 compiling sdio.c...
 .\SDIO\Inc\sdio.h(3): warning:  #1295-D: Deprecated declaration SDIO_Get_RCA - give arg types
   uint16_t SDIO_Get_RCA();
@@ -44,14 +64,10 @@ linking...
 .\Objects\SDIO_CMSIS.axf: Error: L6218E: Undefined symbol MMC_disk_read (referred from diskio.o).
 .\Objects\SDIO_CMSIS.axf: Error: L6218E: Undefined symbol MMC_disk_status (referred from diskio.o).
 .\Objects\SDIO_CMSIS.axf: Error: L6218E: Undefined symbol MMC_disk_write (referred from diskio.o).
-.\Objects\SDIO_CMSIS.axf: Error: L6218E: Undefined symbol RAM_disk_initialize (referred from diskio.o).
-.\Objects\SDIO_CMSIS.axf: Error: L6218E: Undefined symbol RAM_disk_status (referred from diskio.o).
-.\Objects\SDIO_CMSIS.axf: Error: L6218E: Undefined symbol USB_disk_initialize (referred from diskio.o).
-.\Objects\SDIO_CMSIS.axf: Error: L6218E: Undefined symbol USB_disk_status (referred from diskio.o).
 Not enough information to list image symbols.
 Not enough information to list load addresses in the image map.
-Finished: 2 information, 0 warning and 8 error messages.
-".\Objects\SDIO_CMSIS.axf" - 8 Error(s), 4 Warning(s).
+Finished: 2 information, 0 warning and 4 error messages.
+".\Objects\SDIO_CMSIS.axf" - 4 Error(s), 13 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -83,7 +99,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.4.0
 Target not created.
-Build Time Elapsed:  00:00:07
+Build Time Elapsed:  00:00:17
 </pre>
 </body>
 </html>
