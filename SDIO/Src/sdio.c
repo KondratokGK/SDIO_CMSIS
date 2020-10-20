@@ -20,7 +20,7 @@ void SDIO_Init()
 	Delay(1);
 	SDIO->CLKCR|=SDIO_CLKCR_CLKEN; //clock enable
 	Delay(1);
-	SDIO->CLKCR|=(0x1<<SDIO_CLKCR_WIDBUS_Pos);//4 wire bus enable
+	SDIO->CLKCR|=(0x0<<SDIO_CLKCR_WIDBUS_Pos);//1 wire bus enable
 	Delay(1);
 	SDIO->CLKCR|=(238<<SDIO_CLKCR_CLKDIV_Pos);//CLK devider 118
 	Delay(1);

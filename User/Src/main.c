@@ -160,7 +160,8 @@ int main()
 	SDIO_Command(7,0x1,SDIO_Get_RCA()<<16,0);
 	SDIO->DCTRL|=1<<8;
 	SDIO_Command(17,0x1,1,0);
-	
+	uint32_t data = SDIO->FIFO;
+	data = SDIO->FIFO;
 	while(1)
 	{
 			USARTPrint(textt,sizeof(textt)/sizeof(*textt)-1);
