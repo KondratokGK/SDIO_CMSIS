@@ -158,9 +158,8 @@ int main()
 	SDIO_Connect();
 	//SdioCommand(9,0x3,SdioRca<<16,0);
 	SDIO_Command(7,0x1,SDIO_Get_RCA()<<16,0);
-	SDIO_Command(32,0x3,0,0);
-	SDIO_Command(33,0x3,0xFFFFFFFF,0);
-	SDIO_Command(38,0x3,0,0);
+	SDIO->DCTRL|=1<<8;
+	SDIO_Command(17,0x1,1,0);
 	
 	while(1)
 	{

@@ -27,26 +27,6 @@ Project File Date:  10/20/2020
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling diskio.c...
-.\SDIO\Inc\sdio.h(33): warning:  #1295-D: Deprecated declaration SDIO_Get_RCA - give arg types
-  uint16_t SDIO_Get_RCA();
-.\SDIO\Inc\sdio.h(39): warning:  #1295-D: Deprecated declaration SDIO_Connect - give arg types
-  void SDIO_Connect();
-.\SDIO\Inc\sdio.h(41): warning:  #1295-D: Deprecated declaration SDIO_disk_initialize - give arg types
-  int SDIO_disk_initialize();
-.\SDIO\Inc\sdio.h(43): warning:  #1295-D: Deprecated declaration SDIO_disk_status - give arg types
-  int SDIO_disk_status();
-fatfs\diskio.c(29): warning:  #550-D: variable "result"  was set but never used
-  	int result;
-fatfs\diskio.c(68): warning:  #550-D: variable "result"  was set but never used
-  	int result;
-fatfs\diskio.c(109): warning:  #550-D: variable "result"  was set but never used
-  	int result;
-fatfs\diskio.c(159): warning:  #550-D: variable "result"  was set but never used
-  	int result;
-fatfs\diskio.c(207): warning:  #177-D: variable "result"  was declared but never referenced
-  	int result;
-fatfs\diskio.c: 9 warnings, 0 errors
 compiling main.c...
 .\SDIO\Inc\sdio.h(33): warning:  #1295-D: Deprecated declaration SDIO_Get_RCA - give arg types
   uint16_t SDIO_Get_RCA();
@@ -57,20 +37,10 @@ compiling main.c...
 .\SDIO\Inc\sdio.h(43): warning:  #1295-D: Deprecated declaration SDIO_disk_status - give arg types
   int SDIO_disk_status();
 User\Src\main.c: 4 warnings, 0 errors
-compiling sdio.c...
-.\SDIO\Inc\sdio.h(33): warning:  #1295-D: Deprecated declaration SDIO_Get_RCA - give arg types
-  uint16_t SDIO_Get_RCA();
-.\SDIO\Inc\sdio.h(39): warning:  #1295-D: Deprecated declaration SDIO_Connect - give arg types
-  void SDIO_Connect();
-.\SDIO\Inc\sdio.h(41): warning:  #1295-D: Deprecated declaration SDIO_disk_initialize - give arg types
-  int SDIO_disk_initialize();
-.\SDIO\Inc\sdio.h(43): warning:  #1295-D: Deprecated declaration SDIO_disk_status - give arg types
-  int SDIO_disk_status();
-SDIO\Src\sdio.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=2942 RO-data=450 RW-data=28 ZI-data=1636  
+Program Size: Code=2934 RO-data=450 RW-data=28 ZI-data=1636  
 FromELF: creating hex file...
-".\Objects\SDIO_CMSIS.axf" - 0 Error(s), 17 Warning(s).
+".\Objects\SDIO_CMSIS.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -101,7 +71,7 @@ Package Vendor: Keil
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
 
    * Component: ARM::CMSIS:CORE:5.4.0
-Build Time Elapsed:  00:00:09
+Build Time Elapsed:  00:00:07
 </pre>
 </body>
 </html>

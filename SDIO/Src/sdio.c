@@ -148,7 +148,7 @@ void SDIO_Connect()
 	}
 	SDIO->CLKCR&=~SDIO_CLKCR_CLKDIV_Msk;
 	Delay(1);
-	SDIO->CLKCR|=(2<<SDIO_CLKCR_CLKDIV_Pos);
+	SDIO->CLKCR|=(118<<SDIO_CLKCR_CLKDIV_Pos);
 	
 }
 
