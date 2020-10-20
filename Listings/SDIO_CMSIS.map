@@ -1,0 +1,518 @@
+Component: ARM Compiler 5.06 update 5 (build 528) Tool: armlink [4d35e2]
+
+==============================================================================
+
+Section Cross References
+
+    main.o(i.RccInit) refers to system_stm32f4xx.o(i.SystemCoreClockUpdate) for SystemCoreClockUpdate
+    main.o(i.UsartInit) refers to lludivv7m.o(.text) for __aeabi_uldivmod
+    main.o(i.UsartInit) refers to llshl.o(.text) for __aeabi_llsl
+    main.o(i.UsartInit) refers to system_stm32f4xx.o(.data) for SystemCoreClock
+    main.o(i.main) refers to main.o(i.GpioInit) for GpioInit
+    main.o(i.main) refers to main.o(i.RccInit) for RccInit
+    main.o(i.main) refers to main.o(i.Fault_Handler) for Fault_Handler
+    main.o(i.main) refers to sdio.o(i.SDIO_Init) for SDIO_Init
+    main.o(i.main) refers to main.o(i.UsartInit) for UsartInit
+    main.o(i.main) refers to sdio.o(i.SDIO_Connect) for SDIO_Connect
+    main.o(i.main) refers to sdio.o(i.SDIO_Get_RCA) for SDIO_Get_RCA
+    main.o(i.main) refers to sdio.o(i.SDIO_Command) for SDIO_Command
+    main.o(i.main) refers to main.o(i.USARTPrint) for USARTPrint
+    main.o(i.main) refers to cmsis_delay.o(i.Delay) for Delay
+    ff.o(i.change_bitmap) refers to ff.o(i.move_window) for move_window
+    ff.o(i.check_fs) refers to ff.o(i.move_window) for move_window
+    ff.o(i.check_fs) refers to ff.o(i.ld_word) for ld_word
+    ff.o(i.check_fs) refers to ff.o(i.mem_cmp) for mem_cmp
+    ff.o(i.cmp_lfn) refers to ff.o(i.ld_word) for ld_word
+    ff.o(i.cmp_lfn) refers to ffunicode.o(i.ff_wtoupper) for ff_wtoupper
+    ff.o(i.cmp_lfn) refers to ff.o(.constdata) for LfnOfs
+    ff.o(i.create_chain) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.create_chain) refers to ff.o(i.find_bitmap) for find_bitmap
+    ff.o(i.create_chain) refers to ff.o(i.change_bitmap) for change_bitmap
+    ff.o(i.create_chain) refers to ff.o(i.fill_last_frag) for fill_last_frag
+    ff.o(i.create_chain) refers to ff.o(i.put_fat) for put_fat
+    ff.o(i.create_name) refers to ff.o(i.tchar2uni) for tchar2uni
+    ff.o(i.create_name) refers to ff.o(i.chk_chr) for chk_chr
+    ff.o(i.create_name) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.create_name) refers to ffunicode.o(i.ff_uni2oem) for ff_uni2oem
+    ff.o(i.create_name) refers to ff.o(.constdata) for ExCvt
+    ff.o(i.create_xdir) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.create_xdir) refers to ff.o(i.st_word) for st_word
+    ff.o(i.create_xdir) refers to ff.o(i.xname_sum) for xname_sum
+    ff.o(i.dir_alloc) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.dir_alloc) refers to ff.o(i.move_window) for move_window
+    ff.o(i.dir_alloc) refers to ff.o(i.dir_next) for dir_next
+    ff.o(i.dir_clear) refers to ff.o(i.sync_window) for sync_window
+    ff.o(i.dir_clear) refers to ff.o(i.clst2sect) for clst2sect
+    ff.o(i.dir_clear) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.dir_clear) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.dir_find) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.dir_find) refers to ff.o(i.xname_sum) for xname_sum
+    ff.o(i.dir_find) refers to ff.o(i.ld_word) for ld_word
+    ff.o(i.dir_find) refers to ffunicode.o(i.ff_wtoupper) for ff_wtoupper
+    ff.o(i.dir_find) refers to ff.o(i.dir_read) for dir_read
+    ff.o(i.dir_find) refers to ff.o(i.move_window) for move_window
+    ff.o(i.dir_find) refers to ff.o(i.cmp_lfn) for cmp_lfn
+    ff.o(i.dir_find) refers to ff.o(i.sum_sfn) for sum_sfn
+    ff.o(i.dir_find) refers to ff.o(i.mem_cmp) for mem_cmp
+    ff.o(i.dir_find) refers to ff.o(i.dir_next) for dir_next
+    ff.o(i.dir_next) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.dir_next) refers to ff.o(i.create_chain) for create_chain
+    ff.o(i.dir_next) refers to ff.o(i.dir_clear) for dir_clear
+    ff.o(i.dir_next) refers to ff.o(i.clst2sect) for clst2sect
+    ff.o(i.dir_read) refers to ff.o(i.move_window) for move_window
+    ff.o(i.dir_read) refers to ff.o(i.load_xdir) for load_xdir
+    ff.o(i.dir_read) refers to ff.o(i.pick_lfn) for pick_lfn
+    ff.o(i.dir_read) refers to ff.o(i.sum_sfn) for sum_sfn
+    ff.o(i.dir_read) refers to ff.o(i.dir_next) for dir_next
+    ff.o(i.dir_register) refers to ff.o(i.dir_alloc) for dir_alloc
+    ff.o(i.dir_register) refers to ff.o(i.fill_first_frag) for fill_first_frag
+    ff.o(i.dir_register) refers to ff.o(i.fill_last_frag) for fill_last_frag
+    ff.o(i.dir_register) refers to ff.o(i.load_obj_xdir) for load_obj_xdir
+    ff.o(i.dir_register) refers to ff.o(i.st_qword) for st_qword
+    ff.o(i.dir_register) refers to ff.o(i.store_xdir) for store_xdir
+    ff.o(i.dir_register) refers to ff.o(i.create_xdir) for create_xdir
+    ff.o(i.dir_register) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.dir_register) refers to ff.o(i.gen_numname) for gen_numname
+    ff.o(i.dir_register) refers to ff.o(i.dir_find) for dir_find
+    ff.o(i.dir_register) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.dir_register) refers to ff.o(i.sum_sfn) for sum_sfn
+    ff.o(i.dir_register) refers to ff.o(i.move_window) for move_window
+    ff.o(i.dir_register) refers to ff.o(i.put_lfn) for put_lfn
+    ff.o(i.dir_register) refers to ff.o(i.dir_next) for dir_next
+    ff.o(i.dir_register) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.dir_remove) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.dir_remove) refers to ff.o(i.move_window) for move_window
+    ff.o(i.dir_remove) refers to ff.o(i.dir_next) for dir_next
+    ff.o(i.dir_sdi) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.dir_sdi) refers to ff.o(i.clst2sect) for clst2sect
+    ff.o(i.f_close) refers to ff.o(i.f_sync) for f_sync
+    ff.o(i.f_close) refers to ff.o(i.validate) for validate
+    ff.o(i.f_closedir) refers to ff.o(i.validate) for validate
+    ff.o(i.f_getfree) refers to ff.o(i.mount_volume) for mount_volume
+    ff.o(i.f_getfree) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.f_getfree) refers to ff.o(i.move_window) for move_window
+    ff.o(i.f_getfree) refers to ff.o(i.ld_word) for ld_word
+    ff.o(i.f_getfree) refers to ff.o(i.ld_dword) for ld_dword
+    ff.o(i.f_lseek) refers to ff.o(i.validate) for validate
+    ff.o(i.f_lseek) refers to ff.o(i.fill_last_frag) for fill_last_frag
+    ff.o(i.f_lseek) refers to lludivv7m.o(.text) for __aeabi_uldivmod
+    ff.o(i.f_lseek) refers to ff.o(i.create_chain) for create_chain
+    ff.o(i.f_lseek) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.f_lseek) refers to ff.o(i.clst2sect) for clst2sect
+    ff.o(i.f_lseek) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.f_lseek) refers to diskio.o(i.disk_read) for disk_read
+    ff.o(i.f_mkdir) refers to ff.o(i.mount_volume) for mount_volume
+    ff.o(i.f_mkdir) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_mkdir) refers to ff.o(i.create_chain) for create_chain
+    ff.o(i.f_mkdir) refers to ff.o(i.dir_clear) for dir_clear
+    ff.o(i.f_mkdir) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.f_mkdir) refers to ff.o(i.st_dword) for st_dword
+    ff.o(i.f_mkdir) refers to ff.o(i.st_clust) for st_clust
+    ff.o(i.f_mkdir) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.f_mkdir) refers to ff.o(i.dir_register) for dir_register
+    ff.o(i.f_mkdir) refers to ff.o(i.store_xdir) for store_xdir
+    ff.o(i.f_mkdir) refers to ff.o(i.sync_fs) for sync_fs
+    ff.o(i.f_mkdir) refers to ff.o(i.remove_chain) for remove_chain
+    ff.o(i.f_mount) refers to ff.o(i.get_ldnumber) for get_ldnumber
+    ff.o(i.f_mount) refers to ff.o(i.mount_volume) for mount_volume
+    ff.o(i.f_mount) refers to ff.o(.data) for FatFs
+    ff.o(i.f_open) refers to ff.o(i.mount_volume) for mount_volume
+    ff.o(i.f_open) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_open) refers to ff.o(i.dir_register) for dir_register
+    ff.o(i.f_open) refers to ff.o(i.init_alloc_info) for init_alloc_info
+    ff.o(i.f_open) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.f_open) refers to ff.o(i.st_dword) for st_dword
+    ff.o(i.f_open) refers to ff.o(i.store_xdir) for store_xdir
+    ff.o(i.f_open) refers to ff.o(i.remove_chain) for remove_chain
+    ff.o(i.f_open) refers to ff.o(i.ld_clust) for ld_clust
+    ff.o(i.f_open) refers to ff.o(i.st_clust) for st_clust
+    ff.o(i.f_open) refers to ff.o(i.move_window) for move_window
+    ff.o(i.f_open) refers to ff.o(i.ld_dword) for ld_dword
+    ff.o(i.f_open) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.f_open) refers to lludivv7m.o(.text) for __aeabi_uldivmod
+    ff.o(i.f_open) refers to ff.o(i.clst2sect) for clst2sect
+    ff.o(i.f_open) refers to diskio.o(i.disk_read) for disk_read
+    ff.o(i.f_opendir) refers to ff.o(i.mount_volume) for mount_volume
+    ff.o(i.f_opendir) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_opendir) refers to ff.o(i.init_alloc_info) for init_alloc_info
+    ff.o(i.f_opendir) refers to ff.o(i.ld_clust) for ld_clust
+    ff.o(i.f_opendir) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.f_read) refers to ff.o(i.validate) for validate
+    ff.o(i.f_read) refers to lludivv7m.o(.text) for __aeabi_uldivmod
+    ff.o(i.f_read) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.f_read) refers to ff.o(i.clst2sect) for clst2sect
+    ff.o(i.f_read) refers to diskio.o(i.disk_read) for disk_read
+    ff.o(i.f_read) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.f_read) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.f_readdir) refers to ff.o(i.validate) for validate
+    ff.o(i.f_readdir) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.f_readdir) refers to ff.o(i.dir_read) for dir_read
+    ff.o(i.f_readdir) refers to ff.o(i.get_fileinfo) for get_fileinfo
+    ff.o(i.f_readdir) refers to ff.o(i.dir_next) for dir_next
+    ff.o(i.f_rename) refers to ff.o(i.get_ldnumber) for get_ldnumber
+    ff.o(i.f_rename) refers to ff.o(i.mount_volume) for mount_volume
+    ff.o(i.f_rename) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_rename) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.f_rename) refers to ff.o(i.dir_register) for dir_register
+    ff.o(i.f_rename) refers to ff.o(i.ld_word) for ld_word
+    ff.o(i.f_rename) refers to ff.o(i.st_word) for st_word
+    ff.o(i.f_rename) refers to ff.o(i.store_xdir) for store_xdir
+    ff.o(i.f_rename) refers to ff.o(i.ld_clust) for ld_clust
+    ff.o(i.f_rename) refers to ff.o(i.clst2sect) for clst2sect
+    ff.o(i.f_rename) refers to ff.o(i.move_window) for move_window
+    ff.o(i.f_rename) refers to ff.o(i.st_clust) for st_clust
+    ff.o(i.f_rename) refers to ff.o(i.dir_remove) for dir_remove
+    ff.o(i.f_rename) refers to ff.o(i.sync_fs) for sync_fs
+    ff.o(i.f_stat) refers to ff.o(i.mount_volume) for mount_volume
+    ff.o(i.f_stat) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_stat) refers to ff.o(i.get_fileinfo) for get_fileinfo
+    ff.o(i.f_sync) refers to ff.o(i.validate) for validate
+    ff.o(i.f_sync) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.f_sync) refers to ff.o(i.fill_first_frag) for fill_first_frag
+    ff.o(i.f_sync) refers to ff.o(i.fill_last_frag) for fill_last_frag
+    ff.o(i.f_sync) refers to ff.o(i.load_obj_xdir) for load_obj_xdir
+    ff.o(i.f_sync) refers to ff.o(i.st_dword) for st_dword
+    ff.o(i.f_sync) refers to ff.o(i.st_qword) for st_qword
+    ff.o(i.f_sync) refers to ff.o(i.store_xdir) for store_xdir
+    ff.o(i.f_sync) refers to ff.o(i.sync_fs) for sync_fs
+    ff.o(i.f_sync) refers to ff.o(i.move_window) for move_window
+    ff.o(i.f_sync) refers to ff.o(i.st_clust) for st_clust
+    ff.o(i.f_sync) refers to ff.o(i.st_word) for st_word
+    ff.o(i.f_truncate) refers to ff.o(i.validate) for validate
+    ff.o(i.f_truncate) refers to ff.o(i.remove_chain) for remove_chain
+    ff.o(i.f_truncate) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.f_truncate) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.f_unlink) refers to ff.o(i.mount_volume) for mount_volume
+    ff.o(i.f_unlink) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_unlink) refers to ff.o(i.init_alloc_info) for init_alloc_info
+    ff.o(i.f_unlink) refers to ff.o(i.ld_clust) for ld_clust
+    ff.o(i.f_unlink) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.f_unlink) refers to ff.o(i.dir_read) for dir_read
+    ff.o(i.f_unlink) refers to ff.o(i.dir_remove) for dir_remove
+    ff.o(i.f_unlink) refers to ff.o(i.remove_chain) for remove_chain
+    ff.o(i.f_unlink) refers to ff.o(i.sync_fs) for sync_fs
+    ff.o(i.f_write) refers to ff.o(i.validate) for validate
+    ff.o(i.f_write) refers to lludivv7m.o(.text) for __aeabi_uldivmod
+    ff.o(i.f_write) refers to ff.o(i.create_chain) for create_chain
+    ff.o(i.f_write) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.f_write) refers to ff.o(i.clst2sect) for clst2sect
+    ff.o(i.f_write) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.f_write) refers to diskio.o(i.disk_read) for disk_read
+    ff.o(i.fill_first_frag) refers to ff.o(i.put_fat) for put_fat
+    ff.o(i.fill_last_frag) refers to ff.o(i.put_fat) for put_fat
+    ff.o(i.find_bitmap) refers to ff.o(i.move_window) for move_window
+    ff.o(i.find_volume) refers to ff.o(i.check_fs) for check_fs
+    ff.o(i.find_volume) refers to ff.o(i.ld_dword) for ld_dword
+    ff.o(i.follow_path) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.follow_path) refers to ff.o(i.create_name) for create_name
+    ff.o(i.follow_path) refers to ff.o(i.dir_find) for dir_find
+    ff.o(i.follow_path) refers to ff.o(i.init_alloc_info) for init_alloc_info
+    ff.o(i.follow_path) refers to ff.o(i.ld_clust) for ld_clust
+    ff.o(i.gen_numname) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.gen_numname) refers to ff.o(i.dbc_1st) for dbc_1st
+    ff.o(i.get_fat) refers to ff.o(i.move_window) for move_window
+    ff.o(i.get_fat) refers to ff.o(i.ld_word) for ld_word
+    ff.o(i.get_fat) refers to ff.o(i.ld_dword) for ld_dword
+    ff.o(i.get_fat) refers to lludivv7m.o(.text) for __aeabi_uldivmod
+    ff.o(i.get_fileinfo) refers to ff.o(i.get_xfileinfo) for get_xfileinfo
+    ff.o(i.get_fileinfo) refers to ff.o(i.put_utf) for put_utf
+    ff.o(i.get_fileinfo) refers to ff.o(i.dbc_1st) for dbc_1st
+    ff.o(i.get_fileinfo) refers to ff.o(i.dbc_2nd) for dbc_2nd
+    ff.o(i.get_fileinfo) refers to ffunicode.o(i.ff_oem2uni) for ff_oem2uni
+    ff.o(i.get_fileinfo) refers to ff.o(i.ld_dword) for ld_dword
+    ff.o(i.get_fileinfo) refers to ff.o(i.ld_word) for ld_word
+    ff.o(i.get_xfileinfo) refers to ff.o(i.ld_word) for ld_word
+    ff.o(i.get_xfileinfo) refers to ff.o(i.put_utf) for put_utf
+    ff.o(i.get_xfileinfo) refers to ff.o(i.ld_qword) for ld_qword
+    ff.o(i.init_alloc_info) refers to ff.o(i.ld_dword) for ld_dword
+    ff.o(i.init_alloc_info) refers to ff.o(i.ld_qword) for ld_qword
+    ff.o(i.ld_clust) refers to ff.o(i.ld_word) for ld_word
+    ff.o(i.load_obj_xdir) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.load_obj_xdir) refers to ff.o(i.load_xdir) for load_xdir
+    ff.o(i.load_xdir) refers to ff.o(i.move_window) for move_window
+    ff.o(i.load_xdir) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.load_xdir) refers to ff.o(i.dir_next) for dir_next
+    ff.o(i.load_xdir) refers to ff.o(i.xdir_sum) for xdir_sum
+    ff.o(i.load_xdir) refers to ff.o(i.ld_word) for ld_word
+    ff.o(i.mount_volume) refers to ff.o(i.get_ldnumber) for get_ldnumber
+    ff.o(i.mount_volume) refers to diskio.o(i.disk_status) for disk_status
+    ff.o(i.mount_volume) refers to diskio.o(i.disk_initialize) for disk_initialize
+    ff.o(i.mount_volume) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.mount_volume) refers to ff.o(i.ld_word) for ld_word
+    ff.o(i.mount_volume) refers to ff.o(i.ld_qword) for ld_qword
+    ff.o(i.mount_volume) refers to ff.o(i.ld_dword) for ld_dword
+    ff.o(i.mount_volume) refers to ff.o(i.clst2sect) for clst2sect
+    ff.o(i.mount_volume) refers to ff.o(i.move_window) for move_window
+    ff.o(i.mount_volume) refers to ff.o(.data) for FatFs
+    ff.o(i.mount_volume) refers to ff.o(.bss) for LfnBuf
+    ff.o(i.move_window) refers to ff.o(i.sync_window) for sync_window
+    ff.o(i.move_window) refers to diskio.o(i.disk_read) for disk_read
+    ff.o(i.pick_lfn) refers to ff.o(i.ld_word) for ld_word
+    ff.o(i.pick_lfn) refers to ff.o(.constdata) for LfnOfs
+    ff.o(i.put_fat) refers to ff.o(i.move_window) for move_window
+    ff.o(i.put_fat) refers to ff.o(i.st_word) for st_word
+    ff.o(i.put_fat) refers to ff.o(i.ld_dword) for ld_dword
+    ff.o(i.put_fat) refers to ff.o(i.st_dword) for st_dword
+    ff.o(i.put_lfn) refers to ff.o(i.st_word) for st_word
+    ff.o(i.put_lfn) refers to ff.o(.constdata) for LfnOfs
+    ff.o(i.remove_chain) refers to ff.o(i.put_fat) for put_fat
+    ff.o(i.remove_chain) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.remove_chain) refers to ff.o(i.change_bitmap) for change_bitmap
+    ff.o(i.remove_chain) refers to ff.o(i.clst2sect) for clst2sect
+    ff.o(i.remove_chain) refers to diskio.o(i.disk_ioctl) for disk_ioctl
+    ff.o(i.st_clust) refers to ff.o(i.st_word) for st_word
+    ff.o(i.store_xdir) refers to ff.o(i.xdir_sum) for xdir_sum
+    ff.o(i.store_xdir) refers to ff.o(i.st_word) for st_word
+    ff.o(i.store_xdir) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.store_xdir) refers to ff.o(i.move_window) for move_window
+    ff.o(i.store_xdir) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.store_xdir) refers to ff.o(i.dir_next) for dir_next
+    ff.o(i.sync_fs) refers to ff.o(i.sync_window) for sync_window
+    ff.o(i.sync_fs) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.sync_fs) refers to ff.o(i.st_word) for st_word
+    ff.o(i.sync_fs) refers to ff.o(i.st_dword) for st_dword
+    ff.o(i.sync_fs) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.sync_fs) refers to diskio.o(i.disk_ioctl) for disk_ioctl
+    ff.o(i.sync_window) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.validate) refers to diskio.o(i.disk_status) for disk_status
+    ff.o(i.xname_sum) refers to ffunicode.o(i.ff_wtoupper) for ff_wtoupper
+    ffunicode.o(i.ff_oem2uni) refers to ffunicode.o(.constdata) for uc855
+    ffunicode.o(i.ff_uni2oem) refers to ffunicode.o(.constdata) for uc855
+    ffunicode.o(i.ff_wtoupper) refers to ffunicode.o(.constdata) for cvt1
+    sdio.o(i.SDIO_Command) refers to cmsis_delay.o(i.Delay) for Delay
+    sdio.o(i.SDIO_Connect) refers to sdio.o(i.SDIO_Command) for SDIO_Command
+    sdio.o(i.SDIO_Connect) refers to cmsis_delay.o(i.Delay) for Delay
+    sdio.o(i.SDIO_Connect) refers to sdio.o(.data) for SDIO_RCA
+    sdio.o(i.SDIO_Get_RCA) refers to sdio.o(.data) for SDIO_RCA
+    sdio.o(i.SDIO_Init) refers to cmsis_delay.o(i.Delay) for Delay
+    cmsis_delay.o(i.Delay) refers to system_stm32f4xx.o(i.SystemCoreClockUpdate) for SystemCoreClockUpdate
+    cmsis_delay.o(i.Delay) refers to cmsis_delay.o(i.Delay_Init) for Delay_Init
+    cmsis_delay.o(i.Delay) refers to cmsis_delay.o(.data) for OldCoreClock
+    cmsis_delay.o(i.Delay) refers to system_stm32f4xx.o(.data) for SystemCoreClock
+    cmsis_delay.o(i.Delay_Init) refers to cmsis_delay.o(.data) for devider
+    cmsis_delay.o(i.Delay_Init) refers to system_stm32f4xx.o(.data) for SystemCoreClock
+    cmsis_delay.o(i.SysTick_Handler) refers to cmsis_delay.o(.data) for DelayCounter
+    startup_stm32f407xx.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32f407xx.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32f407xx.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32f407xx.o(RESET) refers to startup_stm32f407xx.o(STACK) for __initial_sp
+    startup_stm32f407xx.o(RESET) refers to startup_stm32f407xx.o(.text) for Reset_Handler
+    startup_stm32f407xx.o(RESET) refers to cmsis_delay.o(i.SysTick_Handler) for SysTick_Handler
+    startup_stm32f407xx.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32f407xx.o(.text) refers to system_stm32f4xx.o(i.SystemInit) for SystemInit
+    startup_stm32f407xx.o(.text) refers to __main.o(!!!main) for __main
+    startup_stm32f407xx.o(.text) refers to startup_stm32f407xx.o(HEAP) for Heap_Mem
+    startup_stm32f407xx.o(.text) refers to startup_stm32f407xx.o(STACK) for Stack_Mem
+    system_stm32f4xx.o(i.SystemCoreClockUpdate) refers to system_stm32f4xx.o(.data) for SystemCoreClock
+    system_stm32f4xx.o(i.SystemCoreClockUpdate) refers to system_stm32f4xx.o(.constdata) for AHBPrescTable
+    __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for __rt_entry_postli_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000009) for __rt_entry_postsh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000002) for __rt_entry_presh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for __rt_entry_sh
+    aeabi_ldiv0_sigfpe.o(.text) refers to rt_div0.o(.text) for __rt_div0
+    __rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to main.o(i.main) for main
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to exit.o(.text) for exit
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000001) for .ARM.Collect$$rtentry$$00000001
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000008) for .ARM.Collect$$rtentry$$00000008
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for .ARM.Collect$$rtentry$$0000000A
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) for .ARM.Collect$$rtentry$$0000000B
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for .ARM.Collect$$rtentry$$0000000D
+    __rtentry4.o(.ARM.Collect$$rtentry$$00000004) refers to sys_stackheap_outer.o(.text) for __user_setup_stackheap
+    __rtentry4.o(.ARM.exidx) refers to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for .ARM.Collect$$rtentry$$00000004
+    rt_div0.o(.text) refers to defsig_fpe_outer.o(.text) for __rt_SIGFPE
+    sys_stackheap_outer.o(.text) refers to libspace.o(.text) for __user_perproc_libspace
+    sys_stackheap_outer.o(.text) refers to startup_stm32f407xx.o(.text) for __user_initial_stackheap
+    exit.o(.text) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for __rt_exit
+    defsig_fpe_outer.o(.text) refers to defsig_fpe_inner.o(.text) for __rt_SIGFPE_inner
+    defsig_fpe_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
+    defsig_fpe_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002E) for __rt_lib_init_alloca_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002C) for __rt_lib_init_argv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001B) for __rt_lib_init_atexit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000021) for __rt_lib_init_clock_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000032) for __rt_lib_init_cpp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000030) for __rt_lib_init_exceptions_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000001) for __rt_lib_init_fp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001F) for __rt_lib_init_fp_trap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000023) for __rt_lib_init_getenv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000A) for __rt_lib_init_heap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000011) for __rt_lib_init_lc_collate_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000013) for __rt_lib_init_lc_ctype_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000015) for __rt_lib_init_lc_monetary_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000017) for __rt_lib_init_lc_numeric_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000019) for __rt_lib_init_lc_time_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000004) for __rt_lib_init_preinit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000E) for __rt_lib_init_rand_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000033) for __rt_lib_init_return
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001D) for __rt_lib_init_signal_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000025) for __rt_lib_init_stdio_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000C) for __rt_lib_init_user_alloc_1
+    libspace.o(.text) refers to libspace.o(.bss) for __libspace_start
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for .ARM.Collect$$rtexit$$00000000
+    rt_raise.o(.text) refers to __raise.o(.text) for __raise
+    rt_raise.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_exit.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_fpe_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    libinit2.o(.ARM.Collect$$libinit$$00000001) refers to fpinit.o(x$fpl$fpinit) for _fp_init
+    libinit2.o(.ARM.Collect$$libinit$$00000010) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000012) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000014) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000016) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000018) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000026) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    libinit2.o(.ARM.Collect$$libinit$$00000027) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    sys_exit.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_exit.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    rtexit2.o(.ARM.Collect$$rtexit$$00000003) refers to libshutdown.o(.ARM.Collect$$libshutdown$$00000000) for __rt_lib_shutdown
+    rtexit2.o(.ARM.Collect$$rtexit$$00000004) refers to sys_exit.o(.text) for _sys_exit
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000001) for .ARM.Collect$$rtexit$$00000001
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for .ARM.Collect$$rtexit$$00000003
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for .ARM.Collect$$rtexit$$00000004
+    __raise.o(.text) refers to defsig.o(CL$$defsig) for __default_signal_handler
+    defsig_general.o(.text) refers to sys_wrch.o(.text) for _ttywrch
+    argv_veneer.o(.emb_text) refers to no_argv.o(.text) for __ARM_get_argv
+    sys_wrch.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_wrch.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig.o(CL$$defsig) refers to defsig_fpe_inner.o(.text) for __rt_SIGFPE_inner
+    defsig.o(CL$$defsig) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    _get_argv_nomalloc.o(.text) refers (Special) to hrguard.o(.text) for __heap_region$guard
+    _get_argv_nomalloc.o(.text) refers to defsig_rtmem_outer.o(.text) for __rt_SIGRTMEM
+    _get_argv_nomalloc.o(.text) refers to sys_command.o(.text) for _sys_command_string
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000002) for __rt_lib_shutdown_cpp_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000007) for __rt_lib_shutdown_fp_trap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F) for __rt_lib_shutdown_heap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000010) for __rt_lib_shutdown_return
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A) for __rt_lib_shutdown_signal_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000004) for __rt_lib_shutdown_stdio_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C) for __rt_lib_shutdown_user_alloc_1
+    sys_command.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_command.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig_abrt_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtred_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtmem_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtmem_outer.o(.text) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_rtmem_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
+    defsig_rtmem_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    defsig_stak_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_pvfn_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_cppl_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_segv_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_other.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing main.o(.rev16_text), (4 bytes).
+    Removing main.o(.revsh_text), (4 bytes).
+    Removing main.o(.rrx_text), (6 bytes).
+    Removing main.o(i.RccChange), (2 bytes).
+    Removing ff.o(i.change_bitmap), (138 bytes).
+    Removing ff.o(i.check_fs), (156 bytes).
+    Removing ff.o(i.chk_chr), (20 bytes).
+    Removing ff.o(i.clst2sect), (26 bytes).
+    Removing ff.o(i.cmp_lfn), (152 bytes).
+    Removing ff.o(i.create_chain), (460 bytes).
+    Removing ff.o(i.create_name), (608 bytes).
+    Removing ff.o(i.create_xdir), (146 bytes).
+    Removing ff.o(i.dbc_1st), (12 bytes).
+    Removing ff.o(i.dbc_2nd), (12 bytes).
+    Removing ff.o(i.dir_alloc), (124 bytes).
+    Removing ff.o(i.dir_clear), (96 bytes).
+    Removing ff.o(i.dir_find), (424 bytes).
+    Removing ff.o(i.dir_next), (224 bytes).
+    Removing ff.o(i.dir_read), (248 bytes).
+    Removing ff.o(i.dir_register), (548 bytes).
+    Removing ff.o(i.dir_remove), (114 bytes).
+    Removing ff.o(i.dir_sdi), (170 bytes).
+    Removing ff.o(i.f_close), (34 bytes).
+    Removing ff.o(i.f_closedir), (24 bytes).
+    Removing ff.o(i.f_getfree), (352 bytes).
+    Removing ff.o(i.f_lseek), (702 bytes).
+    Removing ff.o(i.f_mkdir), (376 bytes).
+    Removing ff.o(i.f_mount), (84 bytes).
+    Removing ff.o(i.f_open), (724 bytes).
+    Removing ff.o(i.f_opendir), (148 bytes).
+    Removing ff.o(i.f_read), (526 bytes).
+    Removing ff.o(i.f_readdir), (78 bytes).
+    Removing ff.o(i.f_rename), (474 bytes).
+    Removing ff.o(i.f_stat), (62 bytes).
+    Removing ff.o(i.f_sync), (384 bytes).
+    Removing ff.o(i.f_truncate), (214 bytes).
+    Removing ff.o(i.f_unlink), (220 bytes).
+    Removing ff.o(i.f_write), (618 bytes).
+    Removing ff.o(i.fill_first_frag), (54 bytes).
+    Removing ff.o(i.fill_last_frag), (68 bytes).
+    Removing ff.o(i.find_bitmap), (164 bytes).
+    Removing ff.o(i.find_volume), (120 bytes).
+    Removing ff.o(i.follow_path), (196 bytes).
+    Removing ff.o(i.gen_numname), (204 bytes).
+    Removing ff.o(i.get_fat), (400 bytes).
+    Removing ff.o(i.get_fileinfo), (484 bytes).
+    Removing ff.o(i.get_ldnumber), (78 bytes).
+    Removing ff.o(i.get_xfileinfo), (216 bytes).
+    Removing ff.o(i.init_alloc_info), (50 bytes).
+    Removing ff.o(i.ld_clust), (38 bytes).
+    Removing ff.o(i.ld_dword), (24 bytes).
+    Removing ff.o(i.ld_qword), (98 bytes).
+    Removing ff.o(i.ld_word), (12 bytes).
+    Removing ff.o(i.load_obj_xdir), (64 bytes).
+    Removing ff.o(i.load_xdir), (270 bytes).
+    Removing ff.o(i.mem_cmp), (36 bytes).
+    Removing ff.o(i.mem_cpy), (26 bytes).
+    Removing ff.o(i.mem_set), (18 bytes).
+    Removing ff.o(i.mount_volume), (1152 bytes).
+    Removing ff.o(i.move_window), (52 bytes).
+    Removing ff.o(i.pick_lfn), (140 bytes).
+    Removing ff.o(i.put_fat), (324 bytes).
+    Removing ff.o(i.put_lfn), (128 bytes).
+    Removing ff.o(i.put_utf), (228 bytes).
+    Removing ff.o(i.remove_chain), (366 bytes).
+    Removing ff.o(i.st_clust), (36 bytes).
+    Removing ff.o(i.st_dword), (24 bytes).
+    Removing ff.o(i.st_qword), (92 bytes).
+    Removing ff.o(i.st_word), (12 bytes).
+    Removing ff.o(i.store_xdir), (114 bytes).
+    Removing ff.o(i.sum_sfn), (32 bytes).
+    Removing ff.o(i.sync_fs), (144 bytes).
+    Removing ff.o(i.sync_window), (74 bytes).
+    Removing ff.o(i.tchar2uni), (176 bytes).
+    Removing ff.o(i.validate), (60 bytes).
+    Removing ff.o(i.xdir_sum), (58 bytes).
+    Removing ff.o(i.xname_sum), (76 bytes).
+    Removing ff.o(.bss), (1120 bytes).
+    Removing ff.o(.constdata), (141 bytes).
+    Removing ff.o(.data), (6 bytes).
+    Removing diskio.o(i.disk_initialize), (50 bytes).
+    Removing diskio.o(i.disk_ioctl), (34 bytes).
+    Removing diskio.o(i.disk_read), (54 bytes).
+    Removing diskio.o(i.disk_status), (50 bytes).
+    Removing diskio.o(i.disk_write), (58 bytes).
+    Removing ffunicode.o(i.ff_oem2uni), (44 bytes).
+    Removing ffunicode.o(i.ff_uni2oem), (64 bytes).
+    Removing ffunicode.o(i.ff_wtoupper), (176 bytes).
+    Removing ffunicode.o(.constdata), (942 bytes).
+    Removing sdio.o(.rev16_text), (4 bytes).
+    Removing sdio.o(.revsh_text), (4 bytes).
+    Removing sdio.o(.rrx_text), (6 bytes).
+    Removing cmsis_delay.o(.rev16_text), (4 bytes).
+    Removing cmsis_delay.o(.revsh_text), (4 bytes).
+    Removing cmsis_delay.o(.rrx_text), (6 bytes).
+    Removing system_stm32f4xx.o(.rev16_text), (4 bytes).
+    Removing system_stm32f4xx.o(.revsh_text), (4 bytes).
+    Removing system_stm32f4xx.o(.rrx_text), (6 bytes).
+
+98 unused section(s) (total 17403 bytes) removed from the image.
