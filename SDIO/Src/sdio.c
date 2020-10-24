@@ -177,8 +177,11 @@ int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 	//Delay(1);
 	SDIO_Command(17,0x1,0,0);
 	Delay(1000);
-	uint32_t data = SDIO->FIFO;
-	data = SDIO->FIFO;
+	uint32_t data[16];
+	for(int i=0;i<16;i++)
+	{
+		data[i] = SDIO->FIFO;
+	}
 	return 0;
 }
 
