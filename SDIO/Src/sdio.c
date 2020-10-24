@@ -172,13 +172,15 @@ int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 	SDIO->DCTRL|=SDIO_DCTRL_DTDIR; //Data direction from card to controller
 	Delay(1);
 	SDIO->DCTRL|=SDIO_DCTRL_DTEN; //Data direction from card to controller
+	Delay(1);
+	SDIO->DLEN|=512; //Data direction from card to controller
 	Delay(1000);
 	//SDIO->DLEN=512;
 	//Delay(1);
 	SDIO_Command(17,0x1,0,0);
 	Delay(1000);
-	uint32_t data[16];
-	for(int i=0;i<16;i++)
+	uint32_t data[128];
+	for(int i=0;i<128;i++)
 	{
 		data[i] = SDIO->FIFO;
 	}

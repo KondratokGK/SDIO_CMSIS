@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\SDIO_CMSIS.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\SDIO_CMSIS.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat Oct 24 18:40:24 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat Oct 24 20:07:54 2020
 <BR><P>
-<H3>Maximum Stack Usage =        168 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        616 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; SDIO_disk_read &rArr; SDIO_Command &rArr; Delay &rArr; Delay_Init
 <P>
@@ -242,7 +242,7 @@ Global Symbols
 <P><STRONG><a name="[a4]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[6d]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 616 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; SDIO_disk_read &rArr; SDIO_Command &rArr; Delay &rArr; Delay_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -698,8 +698,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7d]"></a>SDIO_disk_read</STRONG> (Thumb, 132 bytes, Stack size 88 bytes, sdio.o(i.SDIO_disk_read))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = SDIO_disk_read &rArr; SDIO_Command &rArr; Delay &rArr; Delay_Init
+<P><STRONG><a name="[7d]"></a>SDIO_disk_read</STRONG> (Thumb, 136 bytes, Stack size 536 bytes, sdio.o(i.SDIO_disk_read))
+<BR><BR>[Stack]<UL><LI>Max Depth = 592<LI>Call Chain = SDIO_disk_read &rArr; SDIO_Command &rArr; Delay &rArr; Delay_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_Get_RCA
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_Command
@@ -737,7 +737,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[6e]"></a>main</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = main &rArr; SDIO_disk_read &rArr; SDIO_Command &rArr; Delay &rArr; Delay_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 616<LI>Call Chain = main &rArr; SDIO_disk_read &rArr; SDIO_Command &rArr; Delay &rArr; Delay_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_disk_read
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_Init
