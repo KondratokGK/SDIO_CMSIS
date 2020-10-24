@@ -76,20 +76,16 @@ uint8_t SDIO_Command(uint8_t cmd, uint8_t RespType, uint32_t argument, uint32_t 
 	}
 	else
 	{
+		uint32_t tempreg=0;
 		SDIO->ICR=0xFFFFFFFF;
-		Delay(1);
-		SDIO->CMD=0;
 		Delay(1);
 		SDIO->ARG=argument;
 		Delay(1);
-		SDIO->CMD|=RespType<<SDIO_CMD_WAITRESP_Pos;
-		Delay(1);
-		SDIO->CMD|=cmd<<SDIO_CMD_CMDINDEX_Pos;
-		Delay(1);
-		SDIO->CMD|=SDIO_CMD_CPSMEN;
-		Delay(1);
+		tempreg|=RespType<<SDIO_CMD_WAITRESP_Pos;
+		tempreg|=cmd<<SDIO_CMD_CMDINDEX_Pos;
+		tempreg|=SDIO_CMD_CPSMEN;
+		SDIO->CMD=tempreg;
 		while((SDIO->STA&SDIO_STA_CMDACT));
-		Delay(1);
 		SDIO->CMD&=~SDIO_CMD_CPSMEN;
 		if(RespType==0x0|RespType==0x2) return 0;
 		else
@@ -100,13 +96,14 @@ uint8_t SDIO_Command(uint8_t cmd, uint8_t RespType, uint32_t argument, uint32_t 
 				response[1]=SDIO->RESP2;
 				response[2]=SDIO->RESP3;
 				response[3]=SDIO->RESP4;
-				return 0;
+				
 			}
 			else
 			{
-				return 0xFF;
+				
 			}
 		}
+		return 0;
 	}
 }
 
@@ -165,16 +162,22 @@ int SDIO_disk_status()
 
 int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 {
+	uint32_t tempreg;
 	SDIO_Command(7,0x1,0,0);
 	SDIO_Command(7,0x1,SDIO_Get_RCA()<<16,0);
-	//SDIO->DCTRL|=SDIO_DCTRL_SDIOEN; //Data direction from card to controller
+	
+	SDIO->DLEN=512; //Data direction from card to controller
+	
+	SDIO->DTIMER=SDIO_DTIMER_DATATIME_Msk;
+	
+	tempreg=0;
+	tempreg|=(uint32_t) 9 << 4; //block size 512 
+	tempreg|=SDIO_DCTRL_DTDIR; //Data direction from card to controller
+	tempreg|=SDIO_DCTRL_DTEN; //Data enable
+	SDIO->DCTRL=tempreg;  
+	
+	
 	Delay(1);
-	SDIO->DCTRL|=SDIO_DCTRL_DTDIR; //Data direction from card to controller
-	Delay(1);
-	SDIO->DCTRL|=SDIO_DCTRL_DTEN; //Data direction from card to controller
-	Delay(1);
-	SDIO->DLEN|=512; //Data direction from card to controller
-	Delay(1000);
 	//SDIO->DLEN=512;
 	//Delay(1);
 	SDIO_Command(17,0x1,0,0);
