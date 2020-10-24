@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\SDIO_CMSIS.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\SDIO_CMSIS.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat Oct 24 22:09:10 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sun Oct 25 01:28:19 2020
 <BR><P>
 <H3>Maximum Stack Usage =        616 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -690,7 +690,7 @@ Global Symbols
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7c]"></a>SDIO_Init</STRONG> (Thumb, 440 bytes, Stack size 24 bytes, sdio.o(i.SDIO_Init))
+<P><STRONG><a name="[7c]"></a>SDIO_Init</STRONG> (Thumb, 384 bytes, Stack size 24 bytes, sdio.o(i.SDIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = SDIO_Init &rArr; Delay &rArr; Delay_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
@@ -698,7 +698,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7d]"></a>SDIO_disk_read</STRONG> (Thumb, 136 bytes, Stack size 536 bytes, sdio.o(i.SDIO_disk_read))
+<P><STRONG><a name="[7d]"></a>SDIO_disk_read</STRONG> (Thumb, 142 bytes, Stack size 536 bytes, sdio.o(i.SDIO_disk_read))
 <BR><BR>[Stack]<UL><LI>Max Depth = 592<LI>Call Chain = SDIO_disk_read &rArr; SDIO_Command &rArr; Delay &rArr; Delay_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_Get_RCA

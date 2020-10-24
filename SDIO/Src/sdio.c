@@ -4,6 +4,9 @@
 #include "cmsis_delay.h"
 #include "sdio.h"
 
+#define INIT_FREQ 200000
+#define SDIO_INPUT_FREQ 48000000
+#define BLOCK_SIZE 9 //2^9=512
 
 uint16_t SDIO_RCA;
 
@@ -14,17 +17,18 @@ uint16_t SDIO_Get_RCA()
 
 void SDIO_Init()
 {
-	
-	RCC->APB2ENR |= RCC_APB2ENR_SDIOEN; // SDIO clock enable
-	SDIO->POWER=SDIO_POWER_PWRCTRL_Msk; //SDIO Power up
-	Delay(1);
-	SDIO->CLKCR|=SDIO_CLKCR_CLKEN; //clock enable
-	Delay(1);
-	SDIO->CLKCR|=(0x0<<SDIO_CLKCR_WIDBUS_Pos);//1 wire bus enable
-	Delay(1);
-	SDIO->CLKCR|=(238<<SDIO_CLKCR_CLKDIV_Pos);//CLK devider 118
-	Delay(1);
+	uint32_t tempreg;
 	uint8_t alternate_GPIOC[]={8,9,10,11,12};
+	uint8_t alternate_GPIOD[]={2};
+	RCC->APB2ENR |= RCC_APB2ENR_SDIOEN; 	// SDIO clock enable
+	SDIO->POWER=SDIO_POWER_PWRCTRL_Msk; 	//SDIO Power up
+	
+	tempreg=0;
+	tempreg|=SDIO_CLKCR_CLKEN; 						//SDIO_CK clock enable
+	tempreg|=(0x0<<SDIO_CLKCR_WIDBUS_Pos);//1 wire bus enable
+	tempreg|=(((SDIO_INPUT_FREQ/INIT_FREQ)-2)<<SDIO_CLKCR_CLKDIV_Pos);//CLK devider 118
+	SDIO->CLKCR=tempreg;
+	
 	for(int i = 0;i<5;i++)
 	{
 		GPIOC->MODER|=0x2<<(alternate_GPIOC[i]*2); //Alternate function
@@ -41,7 +45,10 @@ void SDIO_Init()
 		}
 		
 	}
-	uint8_t alternate_GPIOD[]={2};
+	
+	
+	
+	
 	for(int i = 0;i<1;i++)
 	{
 		GPIOD->MODER|=0x2<<alternate_GPIOD[i]*2; //Alternate function
@@ -59,13 +66,9 @@ void SDIO_Init()
 		Delay(1);
 		
 	}
-	
-	SDIO->DCTRL|=(9<<SDIO_DCTRL_DBLOCKSIZE_Pos); //Block size 2^12=4096
-	Delay(1);
+	tempreg = 0;
 
-	//SDIO->CMD|=SDIO_CMD_CPSMEN; //CMD send enable
-	
-	
+	SDIO->DCTRL|=(BLOCK_SIZE<<SDIO_DCTRL_DBLOCKSIZE_Pos); //Block size 2^12=4096
 	
 }
 uint8_t SDIO_Command(uint8_t cmd, uint8_t RespType, uint32_t argument, uint32_t response[4])
@@ -169,22 +172,21 @@ int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 	SDIO->DLEN=512; //Data direction from card to controller
 	
 	SDIO->DTIMER=SDIO_DTIMER_DATATIME_Msk;
-	
+	Delay(1);
 	tempreg=0;
 	tempreg|=(uint32_t) 9 << 4; //block size 512 
 	tempreg|=SDIO_DCTRL_DTDIR; //Data direction from card to controller
 	tempreg|=SDIO_DCTRL_DTEN; //Data enable
 	SDIO->DCTRL=tempreg;  
 	
-	
-	Delay(1);
-	//SDIO->DLEN=512;
 	//Delay(1);
-	SDIO_Command(17,0x1,0,0);
-	Delay(1000);
+	SDIO_Command(17,0x1,0x000100000,0);
+	//Delay(2000);
 	uint32_t data[128];
+	while(SDIO->FIFOCNT<128){};
 	for(int i=0;i<128;i++)
 	{
+		//Delay(1);
 		data[i] = SDIO->FIFO;
 	}
 	return 0;
