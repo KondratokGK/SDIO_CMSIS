@@ -4,7 +4,7 @@
 #include "cmsis_delay.h"
 #include "sdio.h"
 
-#define INIT_FREQ 200000
+#define INIT_FREQ 400000
 #define SDIO_INPUT_FREQ 48000000
 #define BLOCK_SIZE 9 //2^9=512
 
@@ -170,60 +170,10 @@ int SDIO_disk_status()
 int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 {
 	uint32_t tempreg; //Create template register
-	uint8_t data[512];
+	uint32_t data[128]={0};
 	uint32_t dir=0;
 	
-	//Init DMA
-	  DMA2_Stream3->CR=0;
-  	
-  //Clear all the flags
-  DMA2->LIFCR=DMA_LIFCR_CTCIF3 | DMA_LIFCR_CTEIF3 | DMA_LIFCR_CDMEIF3 | DMA_LIFCR_CFEIF3 | DMA_LIFCR_CHTIF3;
-  
-  //Set the DMA Addresses
-  DMA2_Stream3->PAR=((uint32_t) 0x40012C80);  //SDIO FIFO Address (=SDIO Base+0x80)
-  DMA2_Stream3->M0AR=(uint32_t) *data;    //Memory address
-  
-  //Set the number of data to transfer
-  DMA2_Stream3->NDTR=0;   //Peripheral controls, therefore we don't need to indicate a size
-  
-  //Set the DMA CR
-  tempreg=0;
-  tempreg|=(0x04<<25) & DMA_SxCR_CHSEL;  //Select Channel 4
-  tempreg|=(0x01<<23) & DMA_SxCR_MBURST;  //4 beat memory burst (memory is 32word. Therefore, each time dma access memory, it reads 4*32 bits) (FIFO size must be integer multiple of memory burst)(FIFO is 4byte. Therefore we can only use 4 beat in this case)
-  //Note: Ref manual (p173 (the node at the end of 8.3.11) says that burst mode is not allowed when Pinc=0. However, it appears that this is not true at all. Furthermore. when I set pBurst=0, the SDIO's dma control does not work at all.)
-  tempreg|=(0x01<<21) & DMA_SxCR_PBURST;  //4 beat memory burst Mode ([Burst Size*Psize] must be equal to [FIFO size] to prevent FIFO underrun and overrun errors) (burst also does not work in direct mode).
-  tempreg|=(0x00<<18) & DMA_SxCR_DBM;   //Disable double buffer mode (when this is set, circluar mode is also automatically set. (the actual value is don't care)
-  tempreg|=(0x03<<16) & DMA_SxCR_PL;     //Priority is very_high
-  tempreg|=(0x00<<15) & DMA_SxCR_PINCOS;  //Peripheral increment offset (if this is 1 and Pinc=1, then Peripheral will be incremented by 4 regardless of Psize)
-  tempreg|=(0x02<<13) & DMA_SxCR_MSIZE;  //Memory data size is 32bit (word)
-  tempreg|=(0x02<<11) & DMA_SxCR_PSIZE;  //Peripheral data size is 32bit (word)
-  tempreg|=(0x01<<10) & DMA_SxCR_MINC;  //Enable Memory Increment
-  tempreg|=(0x00<<9) & DMA_SxCR_MINC;  //Disable Peripheral Increment
-  tempreg|=(0x00<<8) & DMA_SxCR_CIRC;   //Disable Circular mode
-  //tempreg|=(0x00<<6) & DMA_SxCR_DIR;  //Direction 0:P2M, 1:M2P
-  tempreg|=(0x01<<5) & DMA_SxCR_PFCTRL; //Peripheral controls the flow control. (The DMA tranfer ends when the data issues end of transfer signal regardless of ndtr value)
-  //Bit [4..1] is for interupt mask. I don't use interrupts here
-  //Bit 0 is EN. I will set it after I set the FIFO CR. (FIFO CR cannot be modified when EN=1)
-  DMA2_Stream3->CR=tempreg;
-	
-	//Set the FIFO CR
-  tempreg=0x21; //Reset value
-  tempreg|=(0<<7); //FEIE is disabled
-  tempreg|=(1<<2); //Fifo is enabled (Direct mode is disabled);
-  tempreg|=3;   //Full fifo (Fifo threshold selection)
-  DMA2_Stream3->FCR=tempreg;
-  
-  //Set the Direction of transfer
-  if (dir==0x2) {
-    DMA2_Stream3->CR|=(0x01<<6) & DMA_SxCR_DIR;
-  } else if (dir==0x0) {
-    DMA2_Stream3->CR|=(0x00<<6) & DMA_SxCR_DIR;
-  }
-  
-  //Enable the DMA (When it is enabled, it starts to respond dma requests)
-  DMA2_Stream3->CR|=DMA_SxCR_EN;
-  //END of PART I
-	
+	//TODO: DMA START
 	
 	
 	SDIO_Command(7,0x1,0,0); 
@@ -233,16 +183,10 @@ int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 	
 	SDIO->DTIMER=SDIO_DTIMER_DATATIME_Msk; //Set data timer
 	
-	tempreg=0;
-	tempreg|=(uint32_t) 9 << 4; //block size 512 
-	tempreg|=SDIO_DCTRL_DTDIR; //Data direction from card to controller
-	tempreg|=SDIO_DCTRL_DTEN; //Data enable
-	SDIO->DCTRL=tempreg;  
 	
-	SDIO_Command(17,0x1,0x000100000,0); //Get data
+	//TODO: DMA read from buffer
 
-	Delay(10);
-	
+	//TODO: DMA STOP
 
 	return 0;
 }
