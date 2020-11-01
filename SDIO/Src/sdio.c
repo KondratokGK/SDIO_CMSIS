@@ -23,6 +23,9 @@ void SDIO_Init()
 	RCC->APB2ENR |= RCC_APB2ENR_SDIOEN; 	// SDIO clock enable
 	SDIO->POWER=SDIO_POWER_PWRCTRL_Msk; 	//SDIO Power up
 	
+	RCC->AHB1ENR|=RCC_AHB1ENR_DMA2EN;			//DMA clock enable
+	SDIO->DCTRL|=SDIO_DCTRL_DMAEN;				//DMA SDIO enable
+	
 	tempreg=0;
 	tempreg|=SDIO_CLKCR_CLKEN; 						//SDIO_CK clock enable
 	tempreg|=(0x0<<SDIO_CLKCR_WIDBUS_Pos);//1 wire bus enable
@@ -170,10 +173,46 @@ int SDIO_disk_status()
 int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 {
 	uint32_t tempreg; //Create template register
-	uint32_t data[128]={0};
-	uint32_t dir=0;
+	uint8_t data[128]={0};
 	
-	//TODO: DMA START
+	
+	//DMA config
+	DMA2_Stream3->CR&=~DMA_SxCR_EN;
+	tempreg=
+	4<<DMA_SxCR_CHSEL_Pos|		//Channel 4
+	1<<DMA_SxCR_MBURST_Pos|		//4 burst memory mode
+	1<<DMA_SxCR_PBURST_Pos|		//4 burst periphal mode
+	0<<DMA_SxCR_DBM_Pos|			//Double buffer disable
+	3<<DMA_SxCR_PL_Pos|				//Very high priotity
+	0<<DMA_SxCR_PINCOS_Pos|		
+	2<<DMA_SxCR_MSIZE_Pos|		//Memory size word
+	2<<DMA_SxCR_PSIZE_Pos|		//Periphal size word
+	1<<DMA_SxCR_MINC_Pos|			//Memory increment enable
+	0<<DMA_SxCR_PINC_Pos|			//Periphal increment disable
+	0<<DMA_SxCR_CIRC_Pos|			//Circular mode enable
+	0<<DMA_SxCR_DIR_Pos|			//From periphal to memory
+	0<<DMA_SxCR_PFCTRL_Pos|		//Periphal is flow controller
+	0<<DMA_SxCR_TCIE_Pos|			//Interrupt disable
+	0<<DMA_SxCR_HTIE_Pos|			//Interrupt disable
+	0<<DMA_SxCR_TEIE_Pos|			//Interrupt disable
+	0<<DMA_SxCR_DMEIE_Pos;		//Interrupt disable
+	DMA2_Stream3->CR=tempreg;
+	tempreg=0;
+	
+	tempreg=
+	0<<DMA_SxFCR_FEIE_Pos|		//FIFO Interrupt disable
+	1<<DMA_SxFCR_DMDIS_Pos|		//Use FIFO
+	3<<DMA_SxFCR_FTH_Pos;			//Full FIFO
+	DMA2_Stream3->FCR=tempreg;
+	tempreg=0;
+	
+	DMA2_Stream3->NDTR=512/4;
+	
+	DMA2_Stream3->PAR=0x40012C80;
+	
+	DMA2_Stream3->M0AR=(uint32_t)data;
+	
+	DMA2_Stream3->CR|=DMA_SxCR_EN;
 	
 	
 	SDIO_Command(7,0x1,0,0); 
@@ -183,11 +222,18 @@ int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 	
 	SDIO->DTIMER=SDIO_DTIMER_DATATIME_Msk; //Set data timer
 	
+	tempreg=0;
+	tempreg|=(uint32_t) 9 << 4; //block size 512 
+	tempreg|=SDIO_DCTRL_DTDIR; //Data direction from card to controller
+	tempreg|=SDIO_DCTRL_DMAEN; //DMA enable
+	tempreg|=SDIO_DCTRL_DTEN; //Data enable
+	SDIO->DCTRL=tempreg;
 	
+	SDIO_Command(17,0x1,0x000000000,0); //Get data
 	//TODO: DMA read from buffer
 
 	//TODO: DMA STOP
-
+	while(data[0]==0){};
 	return 0;
 }
 

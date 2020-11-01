@@ -36,15 +36,13 @@ compiling sdio.c...
   int SDIO_disk_initialize();
 .\SDIO\Inc\sdio.h(43): warning:  #1295-D: Deprecated declaration SDIO_disk_status - give arg types
   int SDIO_disk_status();
-SDIO\Src\sdio.c(150): warning:  #177-D: variable "tempreg"  was declared but never referenced
+SDIO\Src\sdio.c(153): warning:  #177-D: variable "tempreg"  was declared but never referenced
   	uint32_t tempreg;
-SDIO\Src\sdio.c(174): warning:  #177-D: variable "dir"  was declared but never referenced
-  	uint32_t dir=0;
-SDIO\Src\sdio.c: 6 warnings, 0 errors
+SDIO\Src\sdio.c: 5 warnings, 0 errors
 linking...
-Program Size: Code=2998 RO-data=450 RW-data=28 ZI-data=1636  
+Program Size: Code=3042 RO-data=450 RW-data=28 ZI-data=1636  
 FromELF: creating hex file...
-".\Objects\SDIO_CMSIS.axf" - 0 Error(s), 6 Warning(s).
+".\Objects\SDIO_CMSIS.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -68,14 +66,14 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: Keil::Device:Startup:2.6.3
+      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
+      Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
       Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
-      Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
-      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
 
    * Component: ARM::CMSIS:CORE:5.4.0
-Build Time Elapsed:  00:00:06
+Build Time Elapsed:  00:00:10
 </pre>
 </body>
 </html>
