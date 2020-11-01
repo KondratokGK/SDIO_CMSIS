@@ -173,7 +173,7 @@ int SDIO_disk_status()
 int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 {
 	uint32_t tempreg; //Create template register
-	uint8_t data[128]={0};
+	uint8_t data[512]={0};
 	
 	
 	//DMA config
@@ -191,7 +191,7 @@ int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 	0<<DMA_SxCR_PINC_Pos|			//Periphal increment disable
 	0<<DMA_SxCR_CIRC_Pos|			//Circular mode enable
 	0<<DMA_SxCR_DIR_Pos|			//From periphal to memory
-	0<<DMA_SxCR_PFCTRL_Pos|		//Periphal is flow controller
+	1<<DMA_SxCR_PFCTRL_Pos|		//Periphal is flow controller
 	0<<DMA_SxCR_TCIE_Pos|			//Interrupt disable
 	0<<DMA_SxCR_HTIE_Pos|			//Interrupt disable
 	0<<DMA_SxCR_TEIE_Pos|			//Interrupt disable
@@ -233,7 +233,7 @@ int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 	//TODO: DMA read from buffer
 
 	//TODO: DMA STOP
-	while(data[0]==0){};
+	while(SDIO->STA&SDIO_STA_DATAEND!=0){};
 	return 0;
 }
 
