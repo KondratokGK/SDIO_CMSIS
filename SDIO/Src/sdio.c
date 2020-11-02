@@ -17,129 +17,123 @@ uint16_t SDIO_Get_RCA()
 
 void SDIO_Init()
 {
-	uint32_t tempreg;
-	uint8_t alternate_GPIOC[]={8,9,10,11,12};
-	uint8_t alternate_GPIOD[]={2};
+	
 	RCC->APB2ENR |= RCC_APB2ENR_SDIOEN; 	// SDIO clock enable
 	SDIO->POWER=SDIO_POWER_PWRCTRL_Msk; 	//SDIO Power up
 	
 	RCC->AHB1ENR|=RCC_AHB1ENR_DMA2EN;			//DMA clock enable
 	SDIO->DCTRL|=SDIO_DCTRL_DMAEN;				//DMA SDIO enable
 	
-	tempreg=0;
-	tempreg|=SDIO_CLKCR_CLKEN; 						//SDIO_CK clock enable
-	tempreg|=(0x0<<SDIO_CLKCR_WIDBUS_Pos);//1 wire bus enable
-	tempreg|=(((SDIO_INPUT_FREQ/INIT_FREQ)-2)<<SDIO_CLKCR_CLKDIV_Pos);//CLK devider 118
-	SDIO->CLKCR=tempreg;
+	SDIO->CLKCR|=
+	SDIO_CLKCR_CLKEN| 						//SDIO_CK clock enable
+	(0x0<<SDIO_CLKCR_WIDBUS_Pos)|//1 wire bus enable
+	(((SDIO_INPUT_FREQ/INIT_FREQ)-2)<<SDIO_CLKCR_CLKDIV_Pos);//CLK devider 118
 	
-	for(int i = 0;i<5;i++)
-	{
-		GPIOC->MODER|=0x2<<(alternate_GPIOC[i]*2); //Alternate function
-		GPIOC->PUPDR|=0x1<<(alternate_GPIOC[i]*2); //Pull-up
-		GPIOC->OTYPER|=0x0<<alternate_GPIOC[i]; //Push-Pull
-		GPIOC->OSPEEDR|=0x2<<(alternate_GPIOC[i]*2); //high speed
-		if(alternate_GPIOC[i]>7)
-		{
-			GPIOC->AFR[1]|=12<<((alternate_GPIOC[i]-8)*4); //alternate function AF12
-		}
-		else
-		{
-			GPIOC->AFR[0]|=12<<(alternate_GPIOC[i]*4); //alternate function AF12
-		}
-		
-	}
+	GPIOC->MODER|=		//Alternate function
+	0x2<<8*2|		//PC8
+	0x2<<9*2|		//PC9
+	0x2<<10*2|	//PC10
+	0x2<<11*2|	//PC11
+	0x2<<12*2;	//PC12
+	
+	GPIOC->PUPDR|=		//Pull-Up
+	0x1<<8*2|		//PC8
+	0x1<<9*2|		//PC9
+	0x1<<10*2|	//PC10
+	0x1<<11*2|	//PC11
+	0x1<<12*2;	//PC12
+	
+	GPIOC->OTYPER|=		//Push-Pull
+	0x0<<8|		//PC8
+	0x0<<9|		//PC9
+	0x0<<10|	//PC10
+	0x0<<11|	//PC11
+	0x0<<12;	//PC12
+	
+	GPIOC->OSPEEDR|=	//High speed
+	0x3<<8*2|		//PC8
+	0x3<<9*2|		//PC9
+	0x3<<10*2|	//PC10
+	0x3<<11*2|	//PC11
+	0x3<<12*2;	//PC12
+	
+	GPIOC->AFR[1]|=		//AF12 (SDIO)
+	12<<(8-8)*4|	//PC8
+	12<<(9-8)*4|	//PC9
+	12<<(10-8)*4|	//PC10
+	12<<(11-8)*4|	//PC11
+	12<<(12-8)*4;	//PC12
 	
 	
+	GPIOD->MODER|=		//Alternate function
+	0x2<<2*2;		//PD2
+
 	
+	GPIOD->PUPDR|=		//Pull-Up
+	0x1<<2*2;		//PD2
+
 	
-	for(int i = 0;i<1;i++)
-	{
-		GPIOD->MODER|=0x2<<alternate_GPIOD[i]*2; //Alternate function
-		GPIOD->PUPDR|=0x1<<(alternate_GPIOD[i]*2); //Pull-up
-		GPIOD->OTYPER|=0x0<<alternate_GPIOD[i];//open drain
-		GPIOD->OSPEEDR|=0x2<<(alternate_GPIOD[i]*2); //high speed
-		if(alternate_GPIOD[i]>7)
-		{
-			GPIOD->AFR[1]|=12<<((alternate_GPIOC[i]-8)*4); //alternate function AF12
-		}
-		else
-		{
-			GPIOD->AFR[0]|=12<<(alternate_GPIOD[i]*4); //alternate function AF12
-		}
-		Delay(1);
-		
-	}
-	tempreg = 0;
+	GPIOD->OTYPER|=		//Push-Pull
+	0x0<<2;			//PD2
+
+	
+	GPIOD->OSPEEDR|=	//High speed
+	0x3<<2*2;		//PD2
+
+	
+	GPIOD->AFR[0]|=		//AF12 (SDIO)
+	12<<(2*4);	//PD2
 
 	SDIO->DCTRL|=(BLOCK_SIZE<<SDIO_DCTRL_DBLOCKSIZE_Pos); //Block size 2^12=4096
 	
 }
 uint8_t SDIO_Command(uint8_t cmd, uint8_t RespType, uint32_t argument, uint32_t response[4])
 {
-	if((cmd>>6))
-	{
-		return 0xFF;
-	}
+	uint32_t tempreg=0;
+	SDIO->ICR=0xFFFFFFFF;
+	SDIO->ARG=argument;
+	tempreg|=RespType<<SDIO_CMD_WAITRESP_Pos;
+	tempreg|=cmd<<SDIO_CMD_CMDINDEX_Pos;
+	tempreg|=SDIO_CMD_CPSMEN;
+	SDIO->CMD=tempreg;
+	while((SDIO->STA&SDIO_STA_CMDACT));
+	SDIO->CMD&=~SDIO_CMD_CPSMEN;
+	if(RespType==0x0|RespType==0x2) return 0;
 	else
 	{
-		uint32_t tempreg=0;
-		SDIO->ICR=0xFFFFFFFF;
-		Delay(1);
-		SDIO->ARG=argument;
-		Delay(1);
-		tempreg|=RespType<<SDIO_CMD_WAITRESP_Pos;
-		tempreg|=cmd<<SDIO_CMD_CMDINDEX_Pos;
-		tempreg|=SDIO_CMD_CPSMEN;
-		SDIO->CMD=tempreg;
-		while((SDIO->STA&SDIO_STA_CMDACT));
-		SDIO->CMD&=~SDIO_CMD_CPSMEN;
-		if(RespType==0x0|RespType==0x2) return 0;
-		else
+		if(RespType==0x1|RespType==0x3)
 		{
-			if(RespType==0x1|RespType==0x3)
-			{
-				response[0]=SDIO->RESP1;
-				response[1]=SDIO->RESP2;
-				response[2]=SDIO->RESP3;
-				response[3]=SDIO->RESP4;
-				
-			}
-			else
-			{
-				
-			}
+			response[0]=SDIO->RESP1;
+			response[1]=SDIO->RESP2;
+			response[2]=SDIO->RESP3;
+			response[3]=SDIO->RESP4;	
 		}
-		return 0;
+		
 	}
+	return 0;
 }
 
 void SDIO_Connect()
 {
+	uint8_t HCS;
 	uint32_t resp[4];
-	SDIO_Command(0,0,0,0);
-	SDIO_Command(8,1,0x000001AA,resp);
-	SDIO_Command(55,1,0x0,0);
-	if(resp[0]==0x000001AA)
+	SDIO_Command(0,0,0,0);																			//GO_IDLE_STATE
+	SDIO_Command(8,1,0x000001AA,resp);													//Spec version?
+	if(SDIO->STA&SDIO_STA_CTIMEOUT)HCS=0;
+	else HCS=1;
+	SDIO_Command(55,1,0x0,0);																		//ACMD prefix
+	if(HCS)
 	{
-		SDIO_Command(41,1,0x00000000|1<<30|0xFF80<<8,resp);
-		while(!(resp[0]>>31))
-		{
-			SDIO_Command(55,1,0x0,0);
-			Delay(20);
-			SDIO_Command(41,1,0x00000000|1<<30|0xFF80<<8,resp);
-			Delay(10);
-		}
+		if(resp[0]==0x000001AA)HCS=1;
+		else HCS=0;
 	}
-	else
+	SDIO_Command(41,1,0x00000000|HCS<<30|0xFF80<<8,resp);
+	while(!(resp[0]>>31))
 	{
-		SDIO_Command(41,1,0x00000000|0xFF80<<8,resp);
-		while(!(resp[0]>>31))
-		{
-			SDIO_Command(55,1,0x0,0);
-			Delay(20);
-			SDIO_Command(41,1,0x00000000|0xFF80<<8,resp);
-			Delay(10);
-		}
+		SDIO_Command(55,1,0x0,0);
+		Delay(20);
+		SDIO_Command(41,1,0x00000000|1<<30|0xFF80<<8,resp);
+		Delay(10);
 	}
 	//SdioCommand(11,3,0,0);
 	SDIO_Command(2,1,0,0);
@@ -150,7 +144,7 @@ void SDIO_Connect()
 		GPIOA->BSRR|=GPIO_BSRR_BS1;
 	}
 	
-	uint32_t tempreg;
+	
 	
 //	tempreg=SDIO->CLKCR;
 //	tempreg&=~SDIO_CLKCR_CLKDIV_Msk;

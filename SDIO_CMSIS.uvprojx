@@ -807,7 +807,7 @@
                   <MiscControls>--cpp11</MiscControls>
                   <Define></Define>
                   <Undefine></Undefine>
-                  <IncludePath></IncludePath>
+                  <IncludePath>.\CPP</IncludePath>
                 </VariousControls>
               </Cads>
               <Aads>
@@ -830,13 +830,6 @@
               </Aads>
             </GroupArmAds>
           </GroupOption>
-          <Files>
-            <File>
-              <FileName>Test.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Test.cpp</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

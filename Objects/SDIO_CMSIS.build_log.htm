@@ -26,43 +26,7 @@ Project File Date:  11/02/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Rebuild target 'Target 1'
-compiling initscript.c...
-compiling diskio.c...
-.\SDIO\Inc\sdio.h(34): warning:  #1295-D: Deprecated declaration SDIO_Get_RCA - give arg types
-  uint16_t SDIO_Get_RCA();
-.\SDIO\Inc\sdio.h(40): warning:  #1295-D: Deprecated declaration SDIO_Connect - give arg types
-  void SDIO_Connect();
-.\SDIO\Inc\sdio.h(42): warning:  #1295-D: Deprecated declaration SDIO_disk_initialize - give arg types
-  int SDIO_disk_initialize();
-.\SDIO\Inc\sdio.h(44): warning:  #1295-D: Deprecated declaration SDIO_disk_status - give arg types
-  int SDIO_disk_status();
-fatfs\diskio.c(29): warning:  #550-D: variable "result"  was set but never used
-  	int result;
-fatfs\diskio.c(68): warning:  #550-D: variable "result"  was set but never used
-  	int result;
-fatfs\diskio.c(109): warning:  #550-D: variable "result"  was set but never used
-  	int result;
-fatfs\diskio.c(159): warning:  #550-D: variable "result"  was set but never used
-  	int result;
-fatfs\diskio.c(207): warning:  #177-D: variable "result"  was declared but never referenced
-  	int result;
-fatfs\diskio.c: 9 warnings, 0 errors
-compiling ffsystem.c...
-compiling ffunicode.c...
-compiling ff.c...
-compiling Test.cpp...
-assembling startup_stm32f407xx.s...
-compiling main.c...
-.\SDIO\Inc\sdio.h(34): warning:  #1295-D: Deprecated declaration SDIO_Get_RCA - give arg types
-  uint16_t SDIO_Get_RCA();
-.\SDIO\Inc\sdio.h(40): warning:  #1295-D: Deprecated declaration SDIO_Connect - give arg types
-  void SDIO_Connect();
-.\SDIO\Inc\sdio.h(42): warning:  #1295-D: Deprecated declaration SDIO_disk_initialize - give arg types
-  int SDIO_disk_initialize();
-.\SDIO\Inc\sdio.h(44): warning:  #1295-D: Deprecated declaration SDIO_disk_status - give arg types
-  int SDIO_disk_status();
-User\Src\main.c: 4 warnings, 0 errors
+Build target 'Target 1'
 compiling sdio.c...
 .\SDIO\Inc\sdio.h(34): warning:  #1295-D: Deprecated declaration SDIO_Get_RCA - give arg types
   uint16_t SDIO_Get_RCA();
@@ -72,15 +36,11 @@ compiling sdio.c...
   int SDIO_disk_initialize();
 .\SDIO\Inc\sdio.h(44): warning:  #1295-D: Deprecated declaration SDIO_disk_status - give arg types
   int SDIO_disk_status();
-SDIO\Src\sdio.c(153): warning:  #177-D: variable "tempreg"  was declared but never referenced
-  	uint32_t tempreg;
-SDIO\Src\sdio.c: 5 warnings, 0 errors
-compiling cmsis_delay.c...
-compiling system_stm32f4xx.c...
+SDIO\Src\sdio.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=3030 RO-data=450 RW-data=28 ZI-data=1636  
+Program Size: Code=2774 RO-data=450 RW-data=28 ZI-data=1636  
 FromELF: creating hex file...
-".\Objects\SDIO_CMSIS.axf" - 0 Error(s), 18 Warning(s).
+".\Objects\SDIO_CMSIS.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -111,7 +71,7 @@ Package Vendor: Keil
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
 
    * Component: ARM::CMSIS:CORE:5.4.0
-Build Time Elapsed:  00:00:07
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
