@@ -92,7 +92,7 @@ int main()
 	if(RccInit()==10) Fault_Handler();
 	SDIO_Init();
 	UsartInit();
-	uint8_t textt[]="All done\r\n";
+//	uint8_t textt[]="All done\r\n";
 //USARTPrint(textt,sizeof(textt)/sizeof(*textt)-1);
 //	delay(100);
 //	SdioCommand(0,0,0,0);

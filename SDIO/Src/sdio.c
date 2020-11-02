@@ -233,7 +233,7 @@ int SDIO_disk_read(BYTE *buff, LBA_t sector, UINT count)
 	//TODO: DMA read from buffer
 
 	//TODO: DMA STOP
-	while(SDIO->STA&SDIO_STA_DATAEND!=0){};
+	while((SDIO->STA&SDIO_STA_DATAEND)!=0){};
 	return 0;
 }
 
