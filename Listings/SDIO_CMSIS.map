@@ -672,17 +672,17 @@ Image Symbol Table
     i.RccInit                                0x08000564   Section        0  main.o(i.RccInit)
     i.SDIO_Command                           0x0800064c   Section        0  sdio.o(i.SDIO_Command)
     i.SDIO_Connect                           0x080006e8   Section        0  sdio.o(i.SDIO_Connect)
-    i.SDIO_Get_RCA                           0x080007c0   Section        0  sdio.o(i.SDIO_Get_RCA)
-    i.SDIO_Init                              0x080007cc   Section        0  sdio.o(i.SDIO_Init)
-    i.SDIO_disk_read                         0x080008c8   Section        0  sdio.o(i.SDIO_disk_read)
-    i.SysTick_Handler                        0x08000994   Section        0  cmsis_delay.o(i.SysTick_Handler)
-    i.SystemCoreClockUpdate                  0x080009ac   Section        0  system_stm32f4xx.o(i.SystemCoreClockUpdate)
-    i.SystemInit                             0x08000a6c   Section        0  system_stm32f4xx.o(i.SystemInit)
-    i.UsartInit                              0x08000ad0   Section        0  main.o(i.UsartInit)
-    i.main                                   0x08000bec   Section        0  main.o(i.main)
-    x$fpl$fpinit                             0x08000c54   Section       10  fpinit.o(x$fpl$fpinit)
-    $v0                                      0x08000c54   Number         0  fpinit.o(x$fpl$fpinit)
-    .constdata                               0x08000c5e   Section       24  system_stm32f4xx.o(.constdata)
+    i.SDIO_Get_RCA                           0x0800081c   Section        0  sdio.o(i.SDIO_Get_RCA)
+    i.SDIO_Init                              0x08000828   Section        0  sdio.o(i.SDIO_Init)
+    i.SDIO_disk_read                         0x08000924   Section        0  sdio.o(i.SDIO_disk_read)
+    i.SysTick_Handler                        0x080009f0   Section        0  cmsis_delay.o(i.SysTick_Handler)
+    i.SystemCoreClockUpdate                  0x08000a08   Section        0  system_stm32f4xx.o(i.SystemCoreClockUpdate)
+    i.SystemInit                             0x08000ac8   Section        0  system_stm32f4xx.o(i.SystemInit)
+    i.UsartInit                              0x08000b2c   Section        0  main.o(i.UsartInit)
+    i.main                                   0x08000c48   Section        0  main.o(i.main)
+    x$fpl$fpinit                             0x08000cd4   Section       10  fpinit.o(x$fpl$fpinit)
+    $v0                                      0x08000cd4   Number         0  fpinit.o(x$fpl$fpinit)
+    .constdata                               0x08000cde   Section       24  system_stm32f4xx.o(.constdata)
     .data                                    0x20000000   Section        2  sdio.o(.data)
     .data                                    0x20000008   Section       16  cmsis_delay.o(.data)
     .data                                    0x20000018   Section        4  system_stm32f4xx.o(.data)
@@ -895,22 +895,22 @@ Image Symbol Table
     GpioInit                                 0x0800052d   Thumb Code    46  main.o(i.GpioInit)
     RccInit                                  0x08000565   Thumb Code   214  main.o(i.RccInit)
     SDIO_Command                             0x0800064d   Thumb Code   152  sdio.o(i.SDIO_Command)
-    SDIO_Connect                             0x080006e9   Thumb Code   196  sdio.o(i.SDIO_Connect)
-    SDIO_Get_RCA                             0x080007c1   Thumb Code     6  sdio.o(i.SDIO_Get_RCA)
-    SDIO_Init                                0x080007cd   Thumb Code   218  sdio.o(i.SDIO_Init)
-    SDIO_disk_read                           0x080008c9   Thumb Code   190  sdio.o(i.SDIO_disk_read)
-    SysTick_Handler                          0x08000995   Thumb Code    20  cmsis_delay.o(i.SysTick_Handler)
-    SystemCoreClockUpdate                    0x080009ad   Thumb Code   170  system_stm32f4xx.o(i.SystemCoreClockUpdate)
-    SystemInit                               0x08000a6d   Thumb Code    82  system_stm32f4xx.o(i.SystemInit)
-    UsartInit                                0x08000ad1   Thumb Code   262  main.o(i.UsartInit)
-    main                                     0x08000bed   Thumb Code   100  main.o(i.main)
-    _fp_init                                 0x08000c55   Thumb Code    10  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x08000c5d   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x08000c5d   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    AHBPrescTable                            0x08000c5e   Data          16  system_stm32f4xx.o(.constdata)
-    APBPrescTable                            0x08000c6e   Data           8  system_stm32f4xx.o(.constdata)
-    Region$$Table$$Base                      0x08000c78   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08000c98   Number         0  anon$$obj.o(Region$$Table)
+    SDIO_Connect                             0x080006e9   Thumb Code   292  sdio.o(i.SDIO_Connect)
+    SDIO_Get_RCA                             0x0800081d   Thumb Code     6  sdio.o(i.SDIO_Get_RCA)
+    SDIO_Init                                0x08000829   Thumb Code   218  sdio.o(i.SDIO_Init)
+    SDIO_disk_read                           0x08000925   Thumb Code   190  sdio.o(i.SDIO_disk_read)
+    SysTick_Handler                          0x080009f1   Thumb Code    20  cmsis_delay.o(i.SysTick_Handler)
+    SystemCoreClockUpdate                    0x08000a09   Thumb Code   170  system_stm32f4xx.o(i.SystemCoreClockUpdate)
+    SystemInit                               0x08000ac9   Thumb Code    82  system_stm32f4xx.o(i.SystemInit)
+    UsartInit                                0x08000b2d   Thumb Code   262  main.o(i.UsartInit)
+    main                                     0x08000c49   Thumb Code   136  main.o(i.main)
+    _fp_init                                 0x08000cd5   Thumb Code    10  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x08000cdd   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x08000cdd   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    AHBPrescTable                            0x08000cde   Data          16  system_stm32f4xx.o(.constdata)
+    APBPrescTable                            0x08000cee   Data           8  system_stm32f4xx.o(.constdata)
+    Region$$Table$$Base                      0x08000cf8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08000d18   Number         0  anon$$obj.o(Region$$Table)
     SDIO_RCA                                 0x20000000   Data           2  sdio.o(.data)
     DelayCounter                             0x20000008   Data           8  cmsis_delay.o(.data)
     OldCoreClock                             0x20000010   Data           4  cmsis_delay.o(.data)
@@ -927,9 +927,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000229
 
-  Load Region LR_1 (Base: 0x08000000, Size: 0x00000cb4, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x08000000, Size: 0x00000d34, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000c98, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000d18, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -999,37 +999,37 @@ Memory Map of the image
     0x0800052c   0x0800052c   0x00000038   Code   RO            5    i.GpioInit          main.o
     0x08000564   0x08000564   0x000000e8   Code   RO            7    i.RccInit           main.o
     0x0800064c   0x0800064c   0x0000009c   Code   RO          582    i.SDIO_Command      sdio.o
-    0x080006e8   0x080006e8   0x000000d8   Code   RO          583    i.SDIO_Connect      sdio.o
-    0x080007c0   0x080007c0   0x0000000c   Code   RO          584    i.SDIO_Get_RCA      sdio.o
-    0x080007cc   0x080007cc   0x000000fc   Code   RO          585    i.SDIO_Init         sdio.o
-    0x080008c8   0x080008c8   0x000000cc   Code   RO          587    i.SDIO_disk_read    sdio.o
-    0x08000994   0x08000994   0x00000018   Code   RO          656    i.SysTick_Handler   cmsis_delay.o
-    0x080009ac   0x080009ac   0x000000c0   Code   RO          704    i.SystemCoreClockUpdate  system_stm32f4xx.o
-    0x08000a6c   0x08000a6c   0x00000064   Code   RO          705    i.SystemInit        system_stm32f4xx.o
-    0x08000ad0   0x08000ad0   0x0000011c   Code   RO            9    i.UsartInit         main.o
-    0x08000bec   0x08000bec   0x00000068   Code   RO           10    i.main              main.o
-    0x08000c54   0x08000c54   0x0000000a   Code   RO          857    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x08000c5e   0x08000c5e   0x00000018   Data   RO          706    .constdata          system_stm32f4xx.o
-    0x08000c76   0x08000c76   0x00000002   PAD
-    0x08000c78   0x08000c78   0x00000020   Data   RO          913    Region$$Table       anon$$obj.o
+    0x080006e8   0x080006e8   0x00000134   Code   RO          583    i.SDIO_Connect      sdio.o
+    0x0800081c   0x0800081c   0x0000000c   Code   RO          584    i.SDIO_Get_RCA      sdio.o
+    0x08000828   0x08000828   0x000000fc   Code   RO          585    i.SDIO_Init         sdio.o
+    0x08000924   0x08000924   0x000000cc   Code   RO          587    i.SDIO_disk_read    sdio.o
+    0x080009f0   0x080009f0   0x00000018   Code   RO          656    i.SysTick_Handler   cmsis_delay.o
+    0x08000a08   0x08000a08   0x000000c0   Code   RO          704    i.SystemCoreClockUpdate  system_stm32f4xx.o
+    0x08000ac8   0x08000ac8   0x00000064   Code   RO          705    i.SystemInit        system_stm32f4xx.o
+    0x08000b2c   0x08000b2c   0x0000011c   Code   RO            9    i.UsartInit         main.o
+    0x08000c48   0x08000c48   0x0000008c   Code   RO           10    i.main              main.o
+    0x08000cd4   0x08000cd4   0x0000000a   Code   RO          857    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x08000cde   0x08000cde   0x00000018   Data   RO          706    .constdata          system_stm32f4xx.o
+    0x08000cf6   0x08000cf6   0x00000002   PAD
+    0x08000cf8   0x08000cf8   0x00000020   Data   RO          913    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x08000c98, Size: 0x0000001c, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x08000d18, Size: 0x0000001c, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08000c98   0x00000002   Data   RW          590    .data               sdio.o
-    0x20000002   0x08000c9a   0x00000006   PAD
-    0x20000008   0x08000ca0   0x00000010   Data   RW          657    .data               cmsis_delay.o
-    0x20000018   0x08000cb0   0x00000004   Data   RW          707    .data               system_stm32f4xx.o
+    0x20000000   0x08000d18   0x00000002   Data   RW          590    .data               sdio.o
+    0x20000002   0x08000d1a   0x00000006   PAD
+    0x20000008   0x08000d20   0x00000010   Data   RW          657    .data               cmsis_delay.o
+    0x20000018   0x08000d30   0x00000004   Data   RW          707    .data               system_stm32f4xx.o
 
 
-    Execution Region ER_ZI (Exec base: 0x2000001c, Load base: 0x08000cb4, Size: 0x00000664, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x2000001c, Load base: 0x08000d34, Size: 0x00000664, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x2000001c        -       0x00000060   Zero   RW          787    .bss                c_w.l(libspace.o)
-    0x2000007c   0x08000cb4   0x00000004   PAD
+    0x2000007c   0x08000d34   0x00000004   PAD
     0x20000080        -       0x00000200   Zero   RW          695    HEAP                startup_stm32f407xx.o
     0x20000280        -       0x00000400   Zero   RW          694    STACK               startup_stm32f407xx.o
 
@@ -1042,13 +1042,13 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
        252         40          0         16          0      32790   cmsis_delay.o
-       680         54          0          0          0     566352   main.o
-       840         78          0          2          0       4453   sdio.o
+       716         54          0          0          0     566364   main.o
+       932         74          0          2          0       4509   sdio.o
         64         26        392          0       1536        876   startup_stm32f407xx.o
        292         40         24          4          0       2099   system_stm32f4xx.o
 
     ----------------------------------------------------------------------
-      2128        238        450         28       1536     606570   Object Totals
+      2256        234        450         28       1536     606638   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          0          0          2          6          0          0   (incl. Padding)
 
@@ -1102,15 +1102,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2774        254        450         28       1636     606206   Grand Totals
-      2774        254        450         28       1636     606206   ELF Image Totals
-      2774        254        450         28          0          0   ROM Totals
+      2902        250        450         28       1636     606274   Grand Totals
+      2902        250        450         28       1636     606274   ELF Image Totals
+      2902        250        450         28          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 3224 (   3.15kB)
+    Total RO  Size (Code + RO Data)                 3352 (   3.27kB)
     Total RW  Size (RW Data + ZI Data)              1664 (   1.63kB)
-    Total ROM Size (Code + RO Data + RW Data)       3252 (   3.18kB)
+    Total ROM Size (Code + RO Data + RW Data)       3380 (   3.30kB)
 
 ==============================================================================
 

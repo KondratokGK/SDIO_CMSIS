@@ -7,6 +7,7 @@
 #define INIT_FREQ 400000
 #define SDIO_INPUT_FREQ 48000000
 #define BLOCK_SIZE 9 //2^9=512
+#define SCR_SD_BUS_WIDTHS 0x000F000
 
 uint16_t SDIO_RCA;
 
@@ -131,25 +132,33 @@ void SDIO_Connect()
 	while(!(resp[0]>>31))
 	{
 		SDIO_Command(55,1,0x0,0);
-		Delay(20);
-		SDIO_Command(41,1,0x00000000|1<<30|0xFF80<<8,resp);
+		Delay(10);
+		SDIO_Command(41,1,0x00000000|HCS<<30|0xFF80<<8,resp);
 		Delay(10);
 	}
 	//SdioCommand(11,3,0,0);
 	SDIO_Command(2,1,0,0);
+	Delay(1);
 	SDIO_Command(3,1,0,resp);
 	SDIO_RCA=resp[0]>>16;
+	
+	SDIO->CLKCR&=~SDIO_CLKCR_CLKDIV_Msk;
+	SDIO->CLKCR|=0x2<<SDIO_CLKCR_CLKDIV_Pos;
+	
+	//Get SCR register
+	SDIO_Command(55,1,SDIO_RCA<<16,0);
+	SDIO_Command(6,1,0x2,resp);
+	
+	//Check support bus width
+	SDIO->CLKCR&=~SDIO_CLKCR_WIDBUS_Msk;
+	SDIO->CLKCR|=1<<SDIO_CLKCR_WIDBUS_Pos;
+	
+	//debug blink
 	if(SDIO->STA&SDIO_STA_CMDREND)
 	{
 		GPIOA->BSRR|=GPIO_BSRR_BS1;
 	}
 	
-	
-	
-//	tempreg=SDIO->CLKCR;
-//	tempreg&=~SDIO_CLKCR_CLKDIV_Msk;
-//	tempreg|=46<<SDIO_CLKCR_CLKDIV_Pos;
-//	SDIO->CLKCR=tempreg;
 	
 }
 

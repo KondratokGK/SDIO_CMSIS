@@ -7,8 +7,6 @@
 #define HSE_VALUE    ((uint32_t)8000000)
 
 
-
-
 uint32_t RccInit()
 {
 	PWR->CR |= PWR_CR_VOS; //Performance power mode enabled
@@ -87,97 +85,23 @@ void Fault_Handler()
 }
 int main()
 {
-	//uint32_t temp[4];
 	GpioInit();
 	if(RccInit()==10) Fault_Handler();
 	SDIO_Init();
 	UsartInit();
-//	uint8_t textt[]="All done\r\n";
-//USARTPrint(textt,sizeof(textt)/sizeof(*textt)-1);
-//	delay(100);
-//	SdioCommand(0,0,0,0);
-//	USARTPrint((uint8_t *)"Reset\r\n",7);
-//	delay(100);
-//	USARTPrint((uint8_t *)"Wait \r\n",7);
-//	SdioCommand(8,3,0x000001AA,temp);
-//	delay(1);
-//	SdioCommand(41,3,0x40000000,temp);
-//	delay(1);
-//	for(int i=0;i<24;i++)
-//	{
-//		//SdioCommand(0,0,0,0);
-//		delay(1);
-//		//SdioCommand(8,3,0x000001AA,temp);
-//		delay(1);
-//		SDIO->ICR=0xFFFFFFFF;
-//		delay(1);
-//		SdioCommand(41,3,0x40000000|1<<i,temp);
-//		delay(1);
-//		if(!(SDIO->STA&SDIO_STA_CTIMEOUT)) i=25;
-//	}
-	//SdioCommand(41,3,0x00000000|1<<17,temp);
-	//USARTPrint((uint8_t *)"Get  \r\n",7);
-	//delay(100);
-	//USARTPrint((uint8_t *)"Wait \r\n",7);
-	//uint8_t text[] = "SDIO   status:";
-	//USARTPrint(text,sizeof(text)/sizeof(*text));
-	//uint32_t response = SDIO->STA;
-	//uint8_t RespText[]="0x--------\r\n";
-//	for(int i = 0;i<32;i+=4)
-//	{
-//		uint8_t temp = (response%(1<<(i+4))/(1<<i));
-//		if(temp>9)
-//		{
-//			RespText[sizeof(RespText)/sizeof(*RespText)-2-2-(i/4)]=temp+55;
-//		}
-//		else
-//		{
-//			RespText[sizeof(RespText)/sizeof(*RespText)-2-2-(i/4)]=temp+48;//ASCII convert
-//		}
-//		
-//	}
-//	USARTPrint(RespText,sizeof(RespText));
-//	uint8_t ttext[] = "SDIO response:";
-//	USARTPrint(ttext,sizeof(ttext)/sizeof(*ttext));
-//	response = SDIO->RESP1;
-//	for(int i = 0;i<32;i+=4)
-//	{
-//		uint8_t temp = (response%(1<<(i+4))/(1<<i));
-//		if(temp>9)
-//		{
-//			RespText[sizeof(RespText)/sizeof(*RespText)-2-2-(i/4)]=temp+55;
-//		}
-//		else
-//		{
-//			RespText[sizeof(RespText)/sizeof(*RespText)-2-2-(i/4)]=temp+48;//ASCII convert
-//		}
-//		
-//	}
-//	USARTPrint(RespText,sizeof(RespText));
-//	SdioCommand(41,3,0x40001000,temp);
 	SDIO_Connect();
-	//SdioCommand(9,0x3,SdioRca<<16,0);
 	SDIO_Command(7,0x1,SDIO_Get_RCA()<<16,0);
-	//uint8_t oktext[]="OK      \r\n";
-	//uint8_t foo=0;
 	SDIO_disk_read(0,0,0);
+	GPIOA->BSRR|=GPIO_BSRR_BS1;
+	Delay(100);
+	GPIOA->BSRR|=GPIO_BSRR_BR1;
+	Delay(100);
 	while(1)
 	{
 			
 		GPIOA->BSRR|=GPIO_BSRR_BS1;
-		Delay(500);
+		Delay(1000);
 		GPIOA->BSRR|=GPIO_BSRR_BR1;
-		Delay(500);
-//		SDIO->CMD|=SDIO_CMD_CPSMEN;
-//		delay(10);
-//		SDIO->CMD&=~SDIO_CMD_CPSMEN;
-//		delay(10);
-//		if(!(SDIO->STA&SDIO_STA_CTIMEOUT))
-//		{
-//			GPIOA->BSRR|=GPIO_BSRR_BS1;
-//		}
-//		SDIO->ICR=0xFFFFFFFF;
-//		delay(1);
-		
+		Delay(1000);
 	}
 }
